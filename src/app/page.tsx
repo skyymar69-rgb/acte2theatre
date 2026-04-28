@@ -35,14 +35,14 @@ export default async function HomePage() {
         className="relative isolate overflow-hidden bg-nuit-950 text-craie-100"
         aria-labelledby="hero-title"
       >
-        {/* Image de fond — la salle vue depuis le balcon (purement décorative) */}
+        {/* Image de fond — vue panoramique du hall Acte 2 (purement décorative) */}
         <Image
-          src="/images/la-salle.webp"
+          src="/images/hero.webp"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="object-cover object-center opacity-40"
           aria-hidden="true"
         />
         {/* Vignette dégradée pour lisibilité */}

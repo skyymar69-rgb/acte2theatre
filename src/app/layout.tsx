@@ -7,6 +7,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CookieBanner } from "@/components/cookie-banner";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { AccessibilityToggle } from "@/components/accessibility-toggle";
 import {
   JsonLd,
   organizationJsonLd,
@@ -129,11 +132,14 @@ export default async function RootLayout({
           <a href="#main" className="skip-link">
             Aller au contenu principal
           </a>
+          <ScrollProgress />
           <SiteHeader />
-          <main id="main" className="flex-1">
+          <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
           </main>
           <SiteFooter parametres={parametres} />
+          <ScrollToTop />
+          <AccessibilityToggle />
           <CookieBanner />
         </ThemeProvider>
       </body>
