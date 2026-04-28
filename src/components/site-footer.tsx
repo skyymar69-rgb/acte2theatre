@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Parametres } from "@/lib/sanity/types";
 import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import { CookiePrefsLink } from "./cookie-prefs-link";
 
 export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
   const year = new Date().getFullYear();
@@ -253,6 +254,9 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
               >
                 Cookies
               </Link>
+            </li>
+            <li>
+              <CookiePrefsLink />
             </li>
             <li>
               <Link

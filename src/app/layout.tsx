@@ -6,6 +6,7 @@ import type { Parametres } from "@/lib/sanity/types";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CookieBanner } from "@/components/cookie-banner";
 import "./globals.css";
 
 const inter = Inter({
@@ -101,6 +102,7 @@ export default async function RootLayout({
             {children}
           </main>
           <SiteFooter parametres={parametres} />
+          <CookieBanner />
         </ThemeProvider>
       </body>
     </html>
