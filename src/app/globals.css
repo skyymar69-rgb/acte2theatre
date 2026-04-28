@@ -20,7 +20,7 @@
   --c-surface: 255 255 255;     /* blanc pur pour cards */
   --c-surface-2: 254 243 207;   /* craie-200 — surface secondaire */
   --c-ink: 10 10 10;            /* noir scène */
-  --c-ink-muted: 58 58 63;      /* nuit-700 */
+  --c-ink-muted: 20 20 22;      /* quasi-ink — contraste élevé */
   --c-divider: 10 10 10;        /* combiné avec opacity Tailwind border-divider/10 */
   --c-accent: 201 21 30;        /* rouge sang */
   --c-accent-2: 245 197 24;     /* or rideau */
@@ -32,7 +32,7 @@
   --c-surface: 20 20 22;        /* nuit-900 */
   --c-surface-2: 37 37 40;      /* nuit-800 */
   --c-ink: 255 251 236;         /* craie-100 */
-  --c-ink-muted: 195 195 200;   /* gris clair lisible */
+  --c-ink-muted: 245 242 230;   /* quasi-craie — contraste élevé */
   --c-divider: 245 197 24;      /* or rideau (utiliser border-divider/20 pour atténuer) */
   --c-accent: 245 197 24;       /* or rideau dominant en sombre */
   --c-accent-2: 201 21 30;      /* rouge en accent */

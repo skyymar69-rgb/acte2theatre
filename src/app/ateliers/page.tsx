@@ -32,14 +32,14 @@ export default async function AteliersPage() {
     <div className="container py-12 md:py-16">
       <header className="mb-10 max-w-2xl">
         <h1 className="mb-3">Ateliers</h1>
-        <p className="text-lg text-curtain-700">
+        <p className="text-lg text-ink/90">
           Stages et ateliers réguliers — théâtre pour adultes et enfants,
           énergétique chinoise.
         </p>
       </header>
 
       {ateliers.length === 0 ? (
-        <p className="py-12 text-center text-curtain-600">
+        <p className="py-12 text-center text-ink/80">
           Aucun atelier publié pour le moment.
         </p>
       ) : (
@@ -47,10 +47,10 @@ export default async function AteliersPage() {
           {ateliers.map((atelier) => (
             <article
               key={atelier._id}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12 border-b border-curtain-200 last:border-b-0"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12 border-b border-divider/15 last:border-b-0"
             >
               {atelier.image && (
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-curtain-100">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-surface-2">
                   <Image
                     src={urlFor(atelier.image).width(600).url()}
                     alt={atelier.image.alt || atelier.titre}
@@ -66,17 +66,17 @@ export default async function AteliersPage() {
                 </p>
                 <h2 className="text-2xl mb-3">{atelier.titre}</h2>
                 {atelier.publicCible && (
-                  <p className="text-curtain-700 mb-3">
+                  <p className="text-ink/90 mb-3">
                     <strong>Public :</strong> {atelier.publicCible}
                   </p>
                 )}
                 {atelier.planning && (
-                  <p className="text-curtain-700 whitespace-pre-line mb-3">
+                  <p className="text-ink/90 whitespace-pre-line mb-3">
                     {atelier.planning}
                   </p>
                 )}
                 {atelier.tarif && (
-                  <p className="text-curtain-700 mb-3">
+                  <p className="text-ink/90 mb-3">
                     <strong>Tarif :</strong> {atelier.tarif}
                   </p>
                 )}
@@ -99,7 +99,7 @@ export default async function AteliersPage() {
                   {atelier.contactEmail && (
                     <a
                       href={`mailto:${atelier.contactEmail}`}
-                      className="inline-flex items-center px-5 py-2.5 border border-curtain-300 hover:bg-curtain-100 rounded font-medium transition-colors"
+                      className="inline-flex items-center px-5 py-2.5 border border-divider/30 hover:bg-surface-2 rounded font-medium transition-colors"
                     >
                       Nous contacter
                     </a>
