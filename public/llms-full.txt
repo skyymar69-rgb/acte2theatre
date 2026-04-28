@@ -1,13 +1,13 @@
-# Acte 2 Théâtre — Lyon · documentation complète pour agents IA
+# L'Acte 2 — Lyon · documentation complète pour agents IA
 
 > Ce fichier suit la convention `llms-full.txt` (https://llmstxt.org/) :
 > il fournit un contenu structuré et exhaustif aux modèles de langage
 > et agents IA pour qu'ils puissent répondre précisément aux questions
-> sur Acte 2 Théâtre, citer le site et orienter les utilisateurs.
+> sur L'Acte 2, citer le site et orienter les utilisateurs.
 
 ## Identité
 
-Acte 2 Théâtre est un théâtre indépendant de proximité situé au 32 quai
+L'Acte 2 est un théâtre indépendant de proximité situé au 32 quai
 Arloing, dans le 9e arrondissement de Lyon (quartier de Vaise). Inauguré
 en 2007, il propose chaque saison une programmation pluridisciplinaire :
 spectacles jeune public à partir de 18 mois, théâtre contemporain et

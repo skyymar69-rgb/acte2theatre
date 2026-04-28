@@ -155,7 +155,7 @@ export default function MentionsLegalesPage() {
         intellectuelle pour la copie privée).
       </p>
       <p>
-        La marque <em>Acte 2 Théâtre — Happy Culture</em>, ainsi que les
+        La marque <em>L'Acte 2 — Happy Culture</em>, ainsi que les
         logos figurant sur le site, sont la propriété d&apos;ACTE&nbsp;2.
       </p>
 

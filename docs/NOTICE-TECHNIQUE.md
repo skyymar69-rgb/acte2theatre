@@ -1,4 +1,4 @@
-# Notice technique — Site Acte 2 Théâtre
+# Notice technique — Site L'Acte 2
 
 Document à destination de l'équipe technique (intégrateurs, mainteneurs,
 auditeurs RGPD/RGAA, agences relais). Tient lieu de cahier des charges
@@ -231,7 +231,7 @@ sur sanity.io/manage une fois la migration finalisée.
 
 | Critère | État | Détail |
 |---|---|---|
-| Balise `<title>` unique par page | ✅ | Pattern `{Titre} — Acte 2 Théâtre` ou variante locale |
+| Balise `<title>` unique par page | ✅ | Pattern `{Titre} — L'Acte 2` ou variante locale |
 | Meta `description` unique | ✅ | 150-160 caractères, ville + mots-clés naturels |
 | `canonical` correctement défini | ✅ | Tous les types de pages |
 | Hiérarchie `<h1>` à `<h4>` | ✅ | Un seul `<h1>` par page, pas de saut de niveau |
@@ -489,7 +489,7 @@ Le site est sur `http://localhost:3000`, le Studio sur
 ### Court terme (1-2 semaines)
 
 - [ ] Auditer la fiche Google Business Profile et la mettre à jour
-- [ ] Créer une entrée Wikidata Acte 2 Théâtre (renforcement entité IA)
+- [ ] Créer une entrée Wikidata L'Acte 2 (renforcement entité IA)
 - [ ] Brancher Resend ou Formspree sur l'API `/api/contact` pour
       l'envoi d'email réel (actuellement logs serveur seulement)
 - [ ] Ajouter un Google Tag Manager / Plausible si besoin d'analytics

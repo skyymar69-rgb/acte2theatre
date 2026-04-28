@@ -2,7 +2,7 @@ import { LegalPage, legalMetadata } from "@/components/legal-page";
 
 export const metadata = legalMetadata(
   "Déclaration d'accessibilité",
-  "Engagement d'Acte 2 Théâtre en matière d'accessibilité numérique. Conforme au RGAA, WCAG 2.2 niveau AA, European Accessibility Act."
+  "Engagement de L'Acte 2 en matière d'accessibilité numérique. Conforme au RGAA, WCAG 2.2 niveau AA, European Accessibility Act."
 );
 
 export const revalidate = 86400;

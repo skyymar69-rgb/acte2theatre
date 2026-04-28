@@ -1,4 +1,4 @@
-# Guide d'administration — Acte 2 Théâtre
+# Guide d'administration — L'Acte 2
 
 Ce guide est destiné à la personne qui gérera le contenu du site
 acte2theatre.vercel.app au quotidien (programmation, ateliers,

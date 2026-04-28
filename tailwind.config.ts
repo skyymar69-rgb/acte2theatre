@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Charte graphique Acte 2 Théâtre — "Happy Culture"
+ * Charte graphique L'Acte 2 — "Happy Culture"
  *
  *   Or rideau   : #F5C518   ← typographie d'enseigne, accents festifs
  *   Rouge sang  : #C9151E   ← rideau de scène, sièges, CTAs urgents

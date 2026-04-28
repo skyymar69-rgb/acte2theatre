@@ -1,4 +1,4 @@
-# Acte 2 Théâtre — Site web
+# L'Acte 2 — Site web
 
 Refonte complète de [acte2theatre.fr](https://www.acte2theatre.fr) sur stack moderne.
 
@@ -209,4 +209,4 @@ npm run sanity:typegen   # Génère les types TS depuis les schémas + GROQ
 
 ## 📜 Licence
 
-Projet privé pour Acte 2 Théâtre.
+Projet privé pour L'Acte 2.

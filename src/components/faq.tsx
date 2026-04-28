@@ -139,13 +139,13 @@ export function spectacleFaq({
   items.push({
     question: "Comment venir au théâtre ?",
     answer:
-      "Acte 2 Théâtre est situé au 32 quai Arloing, 69009 Lyon, dans le quartier de Vaise. Accès en bus C14, C6 ou 31 (arrêt Place Valmy), métro D station Gorge de Loup à 10 minutes à pied. Parking conseillé : Indigo Saint-Paul ou zones bleues à proximité.",
+      "L'Acte 2 est situé au 32 quai Arloing, 69009 Lyon, dans le quartier de Vaise. Accès en bus C14, C6 ou 31 (arrêt Place Valmy), métro D station Gorge de Loup à 10 minutes à pied. Parking conseillé : Indigo Saint-Paul ou zones bleues à proximité.",
   });
 
   items.push({
     question: "Que se passe-t-il en cas d'annulation ?",
     answer:
-      'Conformément à l\'article L.221-28 12° du Code de la consommation, les billets de spectacle ne sont ni repris ni échangés. En cas d\'annulation par Acte 2 Théâtre (force majeure, indisposition d\'une compagnie), nous vous proposons un report sur une autre date ou le remboursement intégral sous 14 jours. Voir nos <a href="/cgv">conditions générales de vente</a>.',
+      "Conformément à l'article L.221-28 12° du Code de la consommation, les billets de spectacle ne sont ni repris ni échangés. En cas d'annulation par L'Acte 2 (force majeure, indisposition d'une compagnie), nous vous proposons un report sur une autre date ou le remboursement intégral sous 14 jours. Voir nos <a href=\"/cgv\">conditions générales de vente</a>.",
   });
 
   return items;

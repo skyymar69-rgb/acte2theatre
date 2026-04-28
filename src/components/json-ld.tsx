@@ -14,13 +14,13 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-/** Schéma Organization + LocalBusiness pour Acte 2 Théâtre */
+/** Schéma Organization + LocalBusiness pour L'Acte 2 */
 export function organizationJsonLd(siteUrl: string) {
   return {
     "@context": "https://schema.org",
     "@type": ["PerformingArtsTheater", "LocalBusiness"],
     "@id": `${siteUrl}/#organization`,
-    name: "Acte 2 Théâtre",
+    name: "L'Acte 2",
     alternateName: "Acte 2 — Happy Culture",
     legalName: "ACTE 2",
     description:
@@ -120,7 +120,7 @@ export function websiteJsonLd(siteUrl: string) {
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     url: siteUrl,
-    name: "Acte 2 Théâtre — Happy Culture",
+    name: "L'Acte 2 — Happy Culture",
     inLanguage: "fr-FR",
     publisher: { "@id": `${siteUrl}/#organization` },
   };
@@ -175,7 +175,7 @@ export function spectacleEventsJsonLd(sp: SpectacleEventInput) {
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
       "@type": "Place",
-      name: "Acte 2 Théâtre",
+      name: "L'Acte 2",
       address: {
         "@type": "PostalAddress",
         streetAddress: "32 quai Arloing",
@@ -186,7 +186,7 @@ export function spectacleEventsJsonLd(sp: SpectacleEventInput) {
     },
     organizer: {
       "@type": "Organization",
-      name: "Acte 2 Théâtre",
+      name: "L'Acte 2",
       url: sp.siteUrl,
     },
     performer: sp.compagnie

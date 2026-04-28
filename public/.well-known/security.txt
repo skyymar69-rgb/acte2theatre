@@ -1,4 +1,4 @@
-# Politique de sécurité — Acte 2 Théâtre
+# Politique de sécurité — L'Acte 2
 # Conforme RFC 9116 (https://www.rfc-editor.org/rfc/rfc9116)
 
 Contact: mailto:contact@kayzen-lyon.fr

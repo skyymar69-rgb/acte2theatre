@@ -24,14 +24,14 @@ const FILES = [
     md: "GUIDE-ADMINISTRATEUR.md",
     pdf: "Guide-administrateur.pdf",
     title: "Guide administrateur",
-    subtitle: "Acte 2 Théâtre — back-office Sanity",
+    subtitle: "L'Acte 2 — back-office Sanity",
     accent: "#C9151E", // rouge
   },
   {
     md: "NOTICE-TECHNIQUE.md",
     pdf: "Notice-technique.pdf",
     title: "Notice technique",
-    subtitle: "Acte 2 Théâtre — stack, SEO, conformité",
+    subtitle: "L'Acte 2 — stack, SEO, conformité",
     accent: "#F5C518", // or rideau
   },
 ];
@@ -45,7 +45,7 @@ function htmlShell({ title, subtitle, accent, content }) {
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>${title} — Acte 2 Théâtre</title>
+<title>${title} — L'Acte 2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -296,7 +296,7 @@ function htmlShell({ title, subtitle, accent, content }) {
   <header class="cover">
     <div class="kicker">${subtitle}</div>
     <h1>${title}</h1>
-    <p class="subtitle">Document préparé pour Acte 2 Théâtre — version 1.0</p>
+    <p class="subtitle">Document préparé pour L'Acte 2 — version 1.0</p>
     <p class="meta">28 avril 2026 · Réalisation Kayzen Web</p>
     <div class="brand">
       <div class="acte2">Acte <span class="num">2</span> Théâtre</div>

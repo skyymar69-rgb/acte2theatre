@@ -7,7 +7,7 @@ import { apiVersion, dataset, projectId } from "./src/sanity/env";
 
 export default defineConfig({
   name: "default",
-  title: "Acte 2 Théâtre",
+  title: "L'Acte 2",
   basePath: "/studio",
 
   projectId,

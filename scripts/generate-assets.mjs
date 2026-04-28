@@ -118,7 +118,7 @@ async function generateOgDefault() {
     return;
   }
 
-  // SVG composite "Acte 2 Théâtre" + "Happy Culture" + "Lyon 9"
+  // SVG composite "L'Acte 2" + "Happy Culture" + "Lyon 9"
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
@@ -144,7 +144,7 @@ async function generateOgDefault() {
 // Main
 // ─────────────────────────────────────────────────────────────────────────────
 
-console.log("→ Génération des assets Acte 2 Théâtre\n");
+console.log("→ Génération des assets L'Acte 2\n");
 
 console.log("─ WebP des photos ─");
 await convertImagesToWebp();

@@ -11,7 +11,7 @@ export const parametres = defineType({
       name: "nomSite",
       title: "Nom du site",
       type: "string",
-      initialValue: "Acte 2 Théâtre",
+      initialValue: "L'Acte 2",
     }),
     defineField({
       name: "baseline",

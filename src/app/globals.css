@@ -4,7 +4,7 @@
 
 /*
  * ────────────────────────────────────────────────────────────────────────────
- *  Système de thèmes Acte 2 Théâtre
+ *  Système de thèmes L'Acte 2
  *  Palette officielle : noir scène, or rideau, rouge sang, craie projo.
  *  Le thème par défaut est CLAIR. La classe .dark sur <html> bascule en sombre.
  * ────────────────────────────────────────────────────────────────────────────
@@ -68,7 +68,7 @@
 }
 
 @layer components {
-  /* Bannière "Acte 2 Théâtre — Happy Culture" en typo Playfair Display */
+  /* Bannière "L'Acte 2 — Happy Culture" en typo Playfair Display */
   .stencil-banner {
     @apply font-display uppercase tracking-wider;
   }

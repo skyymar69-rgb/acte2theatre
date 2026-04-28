@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 ];
 
 /**
- * Wordmark Acte 2 Théâtre — Happy Culture
+ * Wordmark L'Acte 2 — Happy Culture
  * - Playfair Display, "2" en or rideau, "Happy Culture" en sous-titre
  * - S'adapte automatiquement au thème (couleurs sémantiques)
  */
@@ -24,7 +24,7 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      aria-label="Acte 2 Théâtre Happy Culture — accueil"
+      aria-label="L'Acte 2 Happy Culture — accueil"
       className="group flex items-center gap-3 leading-none -my-1"
     >
       {/* Logo officiel Acte 2 — affiché sur fond noir circulaire pour intégration thème */}
@@ -41,11 +41,10 @@ function Wordmark() {
       </span>
       <span className="flex flex-col items-start">
         <span className="font-display text-[1.45rem] md:text-[1.55rem] font-semibold tracking-tight">
-          Acte&nbsp;
+          L&rsquo;Acte&nbsp;
           <span className="text-or-500 group-hover:text-or-400 transition-colors">
             2
-          </span>{" "}
-          Théâtre
+          </span>
         </span>
         <span className="text-[0.62rem] uppercase tracking-[0.32em] text-ink-muted mt-0.5">
           Happy&nbsp;Culture
@@ -155,7 +154,7 @@ export function SiteHeader() {
             href="/"
             className="font-display text-xl font-semibold tracking-tight text-craie-100"
           >
-            Acte <span className="text-or-500">2</span> Théâtre
+            L&rsquo;Acte <span className="text-or-500">2</span>
           </Link>
           <button
             type="button"

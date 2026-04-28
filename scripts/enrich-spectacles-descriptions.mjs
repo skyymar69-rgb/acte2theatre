@@ -72,7 +72,7 @@ const ENRICHED = {
   "bubulle-le-poisson-volant": {
     seoTitre: "Bubulle, le poisson volant — spectacle dès 3 ans · Lyon",
     seoDescription:
-      "Spectacle jeune public dès 3 ans à Acte 2 Théâtre Lyon : Bubulle, un petit poisson rouge qui rêve de voler. Compagnie Les P'tites Dames. Réservation 12-13€.",
+      "Spectacle jeune public dès 3 ans à L'Acte 2 Lyon : Bubulle, un petit poisson rouge qui rêve de voler. Compagnie Les P'tites Dames. Réservation 12-13€.",
     blocks: [
       richPara([
         { text: "Et si un poisson rouge décidait de quitter son bocal pour aller voir le ciel de plus près ? " },
@@ -114,7 +114,7 @@ const ENRICHED = {
       ),
       heading("Le mot des compagnies invitées à Acte 2"),
       para(
-        "Comme chaque saison, Acte 2 Théâtre programme cette création dans le cadre de sa saison jeune public, à Lyon 9 (Vaise). Des séances scolaires peuvent être organisées sur demande pour les classes de CP au CM2 — écrire à acte2resa@yahoo.fr."
+        "Comme chaque saison, L'Acte 2 programme cette création dans le cadre de sa saison jeune public, à Lyon 9 (Vaise). Des séances scolaires peuvent être organisées sur demande pour les classes de CP au CM2 — écrire à acte2resa@yahoo.fr."
       ),
       heading("Pratique"),
       para(
@@ -126,7 +126,7 @@ const ENRICHED = {
   "monsieur-maxence-au-pays-des-5-sens": {
     seoTitre: "Monsieur Maxence au pays des 5 sens — 18 mois-5 ans · Lyon",
     seoDescription:
-      "Spectacle d'éveil sensoriel pour les 18 mois à 5 ans à Lyon. Acte 2 Théâtre, Cie Les 3 Coups Occitanie, 35-40 min. Tarifs 12-13€.",
+      "Spectacle d'éveil sensoriel pour les 18 mois à 5 ans à Lyon. L'Acte 2, Cie Les 3 Coups Occitanie, 35-40 min. Tarifs 12-13€.",
     blocks: [
       richPara([
         { text: "Toucher, écouter, sentir, regarder, goûter : " },
@@ -143,7 +143,7 @@ const ENRICHED = {
       ),
       heading("Pratique"),
       para(
-        "Durée : 35 à 40 minutes — format calibré pour la concentration des plus jeunes. La salle d'Acte 2 Théâtre, à Lyon 9 (Vaise), est plongée dans une lumière douce et accueille les petits dans un climat rassurant (poussettes acceptées dans le hall). Tarif unique : 13€ adulte / 12€ enfant. Plusieurs représentations programmées en mai, juin et juillet 2026."
+        "Durée : 35 à 40 minutes — format calibré pour la concentration des plus jeunes. La salle de L'Acte 2, à Lyon 9 (Vaise), est plongée dans une lumière douce et accueille les petits dans un climat rassurant (poussettes acceptées dans le hall). Tarif unique : 13€ adulte / 12€ enfant. Plusieurs représentations programmées en mai, juin et juillet 2026."
       ),
     ],
   },
@@ -151,7 +151,7 @@ const ENRICHED = {
   "la-boite-a-histoires-decouvre-le-monde": {
     seoTitre: "La boîte à histoires découvre le monde — 18 mois-5 ans · Lyon",
     seoDescription:
-      "Voyage poétique à travers les saisons pour les 18 mois à 5 ans à Acte 2 Théâtre Lyon. Cie Les 3 Coups Occitanie, 35 min. À partir de 12€.",
+      "Voyage poétique à travers les saisons pour les 18 mois à 5 ans à L'Acte 2 Lyon. Cie Les 3 Coups Occitanie, 35 min. À partir de 12€.",
     blocks: [
       richPara([
         { text: "Une boîte ordinaire devient extraordinaire entre les mains de la conteuse : à chaque ouverture, c'est une saison qui s'invite, un souvenir qui se déploie, une nouvelle rencontre qui surprend les enfants. " },
@@ -168,7 +168,7 @@ const ENRICHED = {
       ),
       heading("Pratique"),
       para(
-        "Durée : 35 minutes. Tarif : 13€ adulte / 12€ enfant. Acte 2 Théâtre, 32 quai Arloing à Lyon 9 (Vaise) — accessible en bus C14, C6, 31 (arrêt Place Valmy) et métro D Gorge de Loup à 10 min à pied. Représentations en mai et juin 2026."
+        "Durée : 35 minutes. Tarif : 13€ adulte / 12€ enfant. L'Acte 2, 32 quai Arloing à Lyon 9 (Vaise) — accessible en bus C14, C6, 31 (arrêt Place Valmy) et métro D Gorge de Loup à 10 min à pied. Représentations en mai et juin 2026."
       ),
     ],
   },
@@ -201,7 +201,7 @@ const ENRICHED = {
   "a-la-mienne": {
     seoTitre: "À la mienne — Nicolas Bret-Morel · Théâtre adulte Lyon",
     seoDescription:
-      "Comédie théâtrale à Acte 2 Théâtre Lyon : Béatrice, romancière, dialogue avec ses personnages. Les Pendrillons Rouges. Tarifs 16-18€.",
+      "Comédie théâtrale à L'Acte 2 Lyon : Béatrice, romancière, dialogue avec ses personnages. Les Pendrillons Rouges. Tarifs 16-18€.",
     blocks: [
       richPara([
         { text: "Béatrice, romancière à succès, écrit dans un grand silence. Sauf que ses personnages ne sont pas du tout d'accord pour rester muets. " },
@@ -218,7 +218,7 @@ const ENRICHED = {
       ),
       heading("Pour qui ?"),
       para(
-        "Tout public à partir de 14 ans. Idéal pour une soirée entre amis, une sortie en couple ou un moment de détente après le travail. Acte 2 Théâtre est à 10 minutes du métro Gorge de Loup à Lyon 9."
+        "Tout public à partir de 14 ans. Idéal pour une soirée entre amis, une sortie en couple ou un moment de détente après le travail. L'Acte 2 est à 10 minutes du métro Gorge de Loup à Lyon 9."
       ),
       heading("Pratique"),
       para(
@@ -230,7 +230,7 @@ const ENRICHED = {
   "l-affaire-de-la-rue-de-lourcine": {
     seoTitre: "L'affaire de la rue de Lourcine — Labiche · Théâtre Lyon",
     seoDescription:
-      "Vaudeville d'Eugène Labiche en deux pièces courtes à Acte 2 Théâtre Lyon. Mise en scène Ariane Sancosme, Compagnie Les Grandes Personnes.",
+      "Vaudeville d'Eugène Labiche en deux pièces courtes à L'Acte 2 Lyon. Mise en scène Ariane Sancosme, Compagnie Les Grandes Personnes.",
     blocks: [
       richPara([
         { text: "Eugène Labiche réinventé en deux pièces courtes : " },
@@ -249,7 +249,7 @@ const ENRICHED = {
       ),
       heading("Pratique"),
       para(
-        "Pièce programmée à Acte 2 Théâtre, 32 quai Arloing à Lyon 9. Pour connaître les prochaines dates ou organiser une sortie de groupe, écrivez à acte2resa@yahoo.fr ou consultez la billetterie en ligne."
+        "Pièce programmée à L'Acte 2, 32 quai Arloing à Lyon 9. Pour connaître les prochaines dates ou organiser une sortie de groupe, écrivez à acte2resa@yahoo.fr ou consultez la billetterie en ligne."
       ),
     ],
   },
@@ -257,7 +257,7 @@ const ENRICHED = {
   "pele-mele-magic-david": {
     seoTitre: "Pêle-Mêle — Magic David · Spectacle de magie Lyon",
     seoDescription:
-      "Spectacle de magie de et avec Magic David à Acte 2 Théâtre Lyon. 1h de tours surprenants, tout public dès 8 ans. Tarifs 15-17€.",
+      "Spectacle de magie de et avec Magic David à L'Acte 2 Lyon. 1h de tours surprenants, tout public dès 8 ans. Tarifs 15-17€.",
     blocks: [
       richPara([
         { text: "Une heure de magie pure, signée " },
@@ -282,7 +282,7 @@ const ENRICHED = {
   "monte-cristo-loi-du-talion": {
     seoTitre: "Monte Cristo ou la Loi du Talion — séance scolaire dès 12 ans",
     seoDescription:
-      "Adaptation de Dumas en 1h10, dès 12 ans, en séance scolaire à Acte 2 Théâtre Lyon. Cie Histoire de Voir, mise en scène Aline Collaudin.",
+      "Adaptation de Dumas en 1h10, dès 12 ans, en séance scolaire à L'Acte 2 Lyon. Cie Histoire de Voir, mise en scène Aline Collaudin.",
     blocks: [
       richPara([
         { text: "Le " },
@@ -303,7 +303,7 @@ const ENRICHED = {
       ),
       heading("Pratique"),
       para(
-        "Séances scolaires sur demande au tarif groupe (à partir de 6€/élève selon effectif). Acte 2 Théâtre dispose de 100 places en configuration cabaret, parfaitement adaptée à l'accueil d'une classe complète. Demander un devis : acte2resa@yahoo.fr ou 04 78 83 21 71."
+        "Séances scolaires sur demande au tarif groupe (à partir de 6€/élève selon effectif). L'Acte 2 dispose de 100 places en configuration cabaret, parfaitement adaptée à l'accueil d'une classe complète. Demander un devis : acte2resa@yahoo.fr ou 04 78 83 21 71."
       ),
     ],
   },
@@ -311,7 +311,7 @@ const ENRICHED = {
   "sacre-moliere": {
     seoTitre: "Sacré Molière ! — séance scolaire 11-12 ans · Acte 2 Lyon",
     seoDescription:
-      "Molière débarque dans notre époque. Séance scolaire à Acte 2 Théâtre Lyon, 1h30, dès 11 ans. Mise en scène Hervé Hartmann.",
+      "Molière débarque dans notre époque. Séance scolaire à L'Acte 2 Lyon, 1h30, dès 11 ans. Mise en scène Hervé Hartmann.",
     blocks: [
       richPara([
         { text: '"Molière débarque parmi nous ce soir !" — voilà l\'invitation lancée par ' },
@@ -332,7 +332,7 @@ const ENRICHED = {
       ),
       heading("Pratique"),
       para(
-        "Durée : 1h30. Séances scolaires sur demande, au tarif groupe (devis sur acte2resa@yahoo.fr). Acte 2 Théâtre, 32 quai Arloing à Lyon 9 (Vaise) — accessible en bus C14, C6, 31 (Place Valmy) et métro D Gorge de Loup à 10 min à pied. Stationnement bus possible à proximité pour les transports scolaires."
+        "Durée : 1h30. Séances scolaires sur demande, au tarif groupe (devis sur acte2resa@yahoo.fr). L'Acte 2, 32 quai Arloing à Lyon 9 (Vaise) — accessible en bus C14, C6, 31 (Place Valmy) et métro D Gorge de Loup à 10 min à pied. Stationnement bus possible à proximité pour les transports scolaires."
       ),
     ],
   },

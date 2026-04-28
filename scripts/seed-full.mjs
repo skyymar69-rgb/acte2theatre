@@ -1,5 +1,5 @@
 /**
- * Seed COMPLET du contenu Acte 2 Théâtre dans Sanity, scrapé depuis acte2theatre.fr.
+ * Seed COMPLET du contenu L'Acte 2 dans Sanity, scrapé depuis acte2theatre.fr.
  *
  * Couvre :
  *   - 3 catégories (jeune-public, theatre, scolaire)
@@ -359,12 +359,12 @@ const PAGES_STATIQUES = [
   {
     slug: "contact",
     titre: "Contact",
-    seoTitre: "Contact · Acte 2 Théâtre",
+    seoTitre: "Contact · L'Acte 2",
     seoDescription:
-      "Adresse, téléphone, emails de l'équipe Acte 2 Théâtre — 32 quai Arloing, Lyon 9.",
+      "Adresse, téléphone, emails de l'équipe L'Acte 2 — 32 quai Arloing, Lyon 9.",
     contenu: [
       heading("Nous trouver"),
-      para("Acte 2 Théâtre"),
+      para("L'Acte 2"),
       para("32, quai Arloing — 69009 Lyon"),
       para("Téléphone : 04 78 83 21 71"),
 
@@ -386,12 +386,12 @@ const PAGES_STATIQUES = [
   {
     slug: "location-salle",
     titre: "Location de salle",
-    seoTitre: "Location de salle · Acte 2 Théâtre Lyon",
+    seoTitre: "Location de salle · L'Acte 2 Lyon",
     seoDescription:
       "Salle de spectacle 100 places à Lyon 9 disponible à la location pour événements d'entreprise, séminaires, représentations et répétitions.",
     contenu: [
       para(
-        "Acte 2 Théâtre met sa salle de spectacle à disposition pour vos événements professionnels et culturels à Lyon."
+        "L'Acte 2 met sa salle de spectacle à disposition pour vos événements professionnels et culturels à Lyon."
       ),
 
       heading("La salle en chiffres"),
@@ -420,12 +420,12 @@ const PAGES_STATIQUES = [
   {
     slug: "soutenir",
     titre: "Nous soutenir",
-    seoTitre: "Nous soutenir · Acte 2 Théâtre",
+    seoTitre: "Nous soutenir · L'Acte 2",
     seoDescription:
-      "Soutenez Acte 2 Théâtre : abonnement saison, séances scolaires, location de salle, mécénat.",
+      "Soutenez L'Acte 2 : abonnement saison, séances scolaires, location de salle, mécénat.",
     contenu: [
       para(
-        "Acte 2 Théâtre vit grâce au public, aux compagnies invitées et aux partenaires qui rendent possible chaque saison. Voici comment nous soutenir."
+        "L'Acte 2 vit grâce au public, aux compagnies invitées et aux partenaires qui rendent possible chaque saison. Voici comment nous soutenir."
       ),
 
       heading("Carte d'abonnement saison"),
@@ -459,7 +459,7 @@ const PAGES_STATIQUES = [
 const PARAMETRES = {
   _id: "parametres",
   _type: "parametres",
-  nomSite: "Acte 2 Théâtre",
+  nomSite: "L'Acte 2",
   baseline: "Théâtre de proximité — Lyon 9",
   adresse: "32, quai Arloing\n69009 Lyon",
   telephone: "04 78 83 21 71",
@@ -473,7 +473,7 @@ const PARAMETRES = {
   carteAbonnement: { actif: true, nbSpectacles: 10, prix: 110 },
   footerTexte: [
     para(
-      "Acte 2 Théâtre — 32 quai Arloing, 69009 Lyon — 04 78 83 21 71. Théâtre de proximité, jeune public et adulte, à Vaise."
+      "L'Acte 2 — 32 quai Arloing, 69009 Lyon — 04 78 83 21 71. Théâtre de proximité, jeune public et adulte, à Vaise."
     ),
   ],
 };
