@@ -1,0 +1,25 @@
+/* TEAM */
+Direction artistique : Hervé Deschamps
+Direction administrative & financière : Cloé Cavex
+Direction de la communication : Cathy Mahdar
+Régie lumière & son : Adrian Miranda
+Site : https://acte2theatre.vercel.app
+Contact : acte2theatre@yahoo.fr
+Localisation : 32 quai Arloing, 69009 Lyon, France
+
+/* AGENCE WEB */
+Conception & développement : Kayzen Web (KAYZEN LYON · SASU)
+Site : https://internet.kayzen-lyon.fr
+Contact : contact@kayzen-lyon.fr
+
+/* THANKS */
+Aux compagnies invitées de la saison 2025-2026.
+Aux spectateurs, abonnés et partenaires qui font vivre Happy Culture
+depuis 2007.
+
+/* SITE */
+Stack : Next.js 15 · React 19 · TypeScript · Tailwind CSS · Sanity CMS
+Hébergement : Vercel
+Billetterie : Mapado
+Standards : RGAA 4.1.2 · WCAG 2.2 AA · RGPD · European Accessibility Act
+Dernière mise à jour : 2026-04-28

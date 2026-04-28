@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
@@ -23,18 +24,32 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      aria-label="Acte 2 Théâtre — accueil"
-      className="group flex flex-col items-start leading-none -my-1"
+      aria-label="Acte 2 Théâtre Happy Culture — accueil"
+      className="group flex items-center gap-3 leading-none -my-1"
     >
-      <span className="font-display text-[1.45rem] md:text-[1.65rem] font-semibold tracking-tight">
-        Acte&nbsp;
-        <span className="text-or-500 group-hover:text-or-400 transition-colors">
-          2
-        </span>{" "}
-        Théâtre
+      {/* Logo officiel Acte 2 — affiché sur fond noir circulaire pour intégration thème */}
+      <span className="hidden sm:inline-flex relative w-11 h-11 rounded-full bg-nuit-950 ring-1 ring-or-500/30 overflow-hidden flex-shrink-0">
+        <Image
+          src="/logos/logo-acte2.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="44px"
+          className="object-cover"
+          priority
+        />
       </span>
-      <span className="text-[0.62rem] uppercase tracking-[0.32em] text-ink-muted mt-0.5">
-        Happy&nbsp;Culture
+      <span className="flex flex-col items-start">
+        <span className="font-display text-[1.45rem] md:text-[1.55rem] font-semibold tracking-tight">
+          Acte&nbsp;
+          <span className="text-or-500 group-hover:text-or-400 transition-colors">
+            2
+          </span>{" "}
+          Théâtre
+        </span>
+        <span className="text-[0.62rem] uppercase tracking-[0.32em] text-ink-muted mt-0.5">
+          Happy&nbsp;Culture
+        </span>
       </span>
     </Link>
   );

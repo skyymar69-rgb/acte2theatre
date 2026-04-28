@@ -1,0 +1,19 @@
+# Politique de sécurité — Acte 2 Théâtre
+# Conforme RFC 9116 (https://www.rfc-editor.org/rfc/rfc9116)
+
+Contact: mailto:contact@kayzen-lyon.fr
+Contact: mailto:acte2theatre@yahoo.fr
+Expires: 2027-04-28T00:00:00.000Z
+Preferred-Languages: fr, en
+Canonical: https://acte2theatre.vercel.app/.well-known/security.txt
+Policy: https://acte2theatre.vercel.app/mentions-legales
+
+# Si vous découvrez une vulnérabilité (XSS, injection, fuite de données),
+# merci de nous écrire avec :
+#   - URL ou capture d'écran reproduisant le problème
+#   - Étapes pour reproduire
+#   - Impact estimé
+# Nous nous engageons à répondre sous 72h ouvrées.
+# Aucune action légale ne sera engagée à l'encontre des chercheurs
+# de bonne foi qui respectent ce périmètre (programme de divulgation
+# coordonnée).

@@ -1,0 +1,5 @@
+# Ce fichier est un alias — voir /.well-known/security.txt (RFC 9116)
+Contact: mailto:contact@kayzen-lyon.fr
+Expires: 2027-04-28T00:00:00.000Z
+Preferred-Languages: fr, en
+Canonical: https://acte2theatre.vercel.app/.well-known/security.txt

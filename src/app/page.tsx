@@ -8,7 +8,7 @@ import {
 } from "@/lib/sanity/queries";
 import type { SpectaclePreview, Atelier } from "@/lib/sanity/types";
 import { SpectacleCard } from "@/components/spectacle-card";
-import { ArrowRight, Ticket, Users, Heart } from "lucide-react";
+import { ArrowRight, Ticket, Users, Heart, Bus, TramFront, ParkingCircle } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -35,9 +35,9 @@ export default async function HomePage() {
         className="relative isolate overflow-hidden bg-nuit-950 text-craie-100"
         aria-labelledby="hero-title"
       >
-        {/* Image de fond — la salle vue depuis la scène */}
+        {/* Image de fond — la salle vue depuis le balcon (purement décorative) */}
         <Image
-          src="/images/la-salle.jpg"
+          src="/images/la-salle.webp"
           alt=""
           fill
           priority
@@ -147,6 +147,47 @@ export default async function HomePage() {
         />
       </section>
 
+      {/* ──────────────── DÉFINITION CANONIQUE (GEO / extractible IA) ──────────────── */}
+      <section
+        aria-label="Présentation"
+        className="container max-w-4xl py-12 md:py-16"
+      >
+        <div className="grid md:grid-cols-12 gap-10 items-start">
+          <p className="md:col-span-8 text-lg leading-relaxed text-ink/90 text-pretty">
+            <strong>Acte 2 Théâtre</strong> est un théâtre de proximité
+            indépendant ouvert depuis <time dateTime="2007-02-06">2007</time>{" "}
+            au 32 quai Arloing, dans le 9<sup>e</sup> arrondissement de Lyon
+            (quartier de Vaise). Sa salle intimiste de{" "}
+            <strong>100 places</strong> en configuration cabaret accueille
+            chaque saison une programmation pluridisciplinaire&nbsp;: spectacles
+            jeune public dès 18 mois, théâtre contemporain et classique,
+            séances scolaires, ateliers de pratique amateur et stages vacances.
+            La billetterie est assurée par <strong>Mapado</strong>.
+          </p>
+          <div className="md:col-span-4 text-sm text-ink-muted space-y-2 md:border-l md:border-divider/15 md:pl-6">
+            <p className="font-display text-base text-ink">
+              En un coup d&apos;œil
+            </p>
+            <p>
+              <strong>Saison&nbsp;:</strong> 2025-2026
+            </p>
+            <p>
+              <strong>Salle&nbsp;:</strong> 100 places, configuration cabaret
+            </p>
+            <p>
+              <strong>Genres&nbsp;:</strong> jeune public, théâtre, magie,
+              scolaire
+            </p>
+            <p>
+              <strong>Tarifs&nbsp;:</strong> 8€ à 18€ — abonnement 110€
+            </p>
+            <p>
+              <strong>Adresse&nbsp;:</strong> 32 quai Arloing, 69009 Lyon
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ──────────────── À L'AFFICHE ──────────────── */}
       {vedettes.length > 0 && (
         <section
@@ -190,7 +231,7 @@ export default async function HomePage() {
         className="relative bg-nuit-950 text-craie-100 overflow-hidden"
       >
         <Image
-          src="/images/scene-banderole.jpg"
+          src="/images/scene-banderole.webp"
           alt=""
           fill
           sizes="100vw"
@@ -220,8 +261,8 @@ export default async function HomePage() {
           </div>
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene">
             <Image
-              src="/images/sieges-rouges.jpg"
-              alt="Les fauteuils rouges en velours d'Acte 2 Théâtre, prêts pour le spectacle"
+              src="/images/sieges-rouges.webp"
+              alt="Rangées de sièges en velours rouge dans la salle d'Acte 2 Théâtre, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 50vw, 100vw"
               className="object-cover"
@@ -316,6 +357,80 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ──────────────── COMMENT VENIR (SEO local + accessibilité) ──────────────── */}
+      <section
+        aria-labelledby="acces-title"
+        className="bg-surface-2/40 border-t border-divider/15 py-14 md:py-20"
+      >
+        <div className="container max-w-5xl">
+          <header className="mb-8 max-w-2xl">
+            <p className="text-rouge-600 dark:text-or-400 font-semibold uppercase tracking-[0.18em] text-xs mb-2">
+              Accès &amp; informations pratiques
+            </p>
+            <h2 id="acces-title">Comment venir à Acte 2 Théâtre</h2>
+            <p className="text-ink-muted mt-3">
+              Le théâtre se situe au <strong>32 quai Arloing, 69009 Lyon</strong>,
+              au cœur du quartier de Vaise — accessible facilement en transports
+              en commun comme en voiture.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <article className="rounded-xl border border-divider/15 bg-surface p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <Bus
+                  className="w-5 h-5 text-or-500"
+                  aria-hidden="true"
+                />
+                <h3 className="text-base font-semibold !text-base">En bus</h3>
+              </div>
+              <p className="text-sm text-ink/85">
+                Lignes <strong>C14</strong>, <strong>C6</strong> et{" "}
+                <strong>31</strong> — arrêt <em>Place Valmy</em>, à 2 minutes
+                à pied du théâtre.
+              </p>
+            </article>
+            <article className="rounded-xl border border-divider/15 bg-surface p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <TramFront
+                  className="w-5 h-5 text-or-500"
+                  aria-hidden="true"
+                />
+                <h3 className="text-base font-semibold !text-base">En métro</h3>
+              </div>
+              <p className="text-sm text-ink/85">
+                Ligne <strong>D</strong> station <em>Gorge de Loup</em>, puis
+                10 minutes à pied le long du quai Arloing.
+              </p>
+            </article>
+            <article className="rounded-xl border border-divider/15 bg-surface p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <ParkingCircle
+                  className="w-5 h-5 text-or-500"
+                  aria-hidden="true"
+                />
+                <h3 className="text-base font-semibold !text-base">En voiture</h3>
+              </div>
+              <p className="text-sm text-ink/85">
+                Parking <strong>Indigo Saint-Paul</strong> à proximité, ou
+                stationnement en zone bleue dans les rues adjacentes.
+              </p>
+            </article>
+          </div>
+
+          <p className="mt-6 text-sm text-ink-muted">
+            Plan d&apos;accès, équipe et formulaire de contact sur la{" "}
+            <Link
+              href="/contact"
+              className="text-rouge-600 dark:text-or-400 underline underline-offset-2"
+            >
+              page Contact
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
 
       {/* ──────────────── ÉTAT VIDE ──────────────── */}
       {vedettes.length === 0 && aVenir.length === 0 && (

@@ -48,7 +48,31 @@ export function organizationJsonLd(siteUrl: string) {
     telephone: "+33478832171",
     email: "acte2theatre@yahoo.fr",
     priceRange: "€€",
+    currenciesAccepted: "EUR",
+    paymentAccepted: "Cash, Credit Card, Check",
+    maximumAttendeeCapacity: 100,
+    publicAccess: true,
+    smokingAllowed: false,
     foundingDate: "2007-02-06",
+    vatID: "FR80494196819",
+    iso6523Code: "0009:494196819",
+    amenityFeature: [
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Bar",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Accessibilité PMR",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Climatisation",
+        value: true,
+      },
+    ],
     founder: {
       "@type": "Person",
       name: "Hervé Deschamps",
