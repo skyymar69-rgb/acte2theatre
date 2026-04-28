@@ -226,7 +226,48 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
             ))}
           </div>
 
-          <p className="mt-6 text-xs text-craie-100/55">
+          <div className="mt-8 pt-6 border-t border-nuit-800/60">
+            <p className="text-[0.62rem] uppercase tracking-[0.32em] text-or-400 mb-3 font-semibold">
+              Billetteries partenaires
+            </p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-craie-100/85">
+              <li>
+                <a
+                  href="https://acte2theatre.mapado.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-or-300 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Ticket className="w-3.5 h-3.5 text-or-500/70" aria-hidden="true" />
+                  Mapado
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.billetreduc.com/4486/salle.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-or-300 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Ticket className="w-3.5 h-3.5 text-or-500/70" aria-hidden="true" />
+                  BilletReduc
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.ticketac.com/salles/lyon-acte-2-theatre.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-or-300 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Ticket className="w-3.5 h-3.5 text-or-500/70" aria-hidden="true" />
+                  Ticketac
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <p className="mt-5 text-xs text-craie-100/55">
             <Link
               href="/plan-du-site"
               className="inline-flex items-center gap-1 hover:text-or-300 transition-colors"

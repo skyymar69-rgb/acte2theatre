@@ -433,6 +433,43 @@ export default async function SpectaclePage({
                   Paiement sécurisé via Mapado · Billets envoyés par email ·
                   Places sur place 30&nbsp;min avant si disponibles.
                 </p>
+
+                {/* Billetteries partenaires — réservations alternatives */}
+                <div className="mt-5 pt-4 border-t border-divider/15">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-muted mb-2">
+                    Aussi disponible sur
+                  </p>
+                  <ul className="space-y-1.5 text-sm">
+                    <li>
+                      <a
+                        href="https://www.billetreduc.com/4486/salle.htm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-ink hover:text-rouge-600 dark:hover:text-or-400 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                        BilletReduc
+                        <span className="sr-only">
+                          {" "}(ouvre dans un nouvel onglet)
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.ticketac.com/salles/lyon-acte-2-theatre.htm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-ink hover:text-rouge-600 dark:hover:text-or-400 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                        Ticketac
+                        <span className="sr-only">
+                          {" "}(ouvre dans un nouvel onglet)
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </aside>
           </div>

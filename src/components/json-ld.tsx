@@ -80,6 +80,8 @@ export function organizationJsonLd(siteUrl: string) {
     sameAs: [
       "https://www.facebook.com/people/ACTE-2théâtre/61559022917345/",
       "https://acte2theatre.mapado.com",
+      "https://www.billetreduc.com/4486/salle.htm",
+      "https://www.ticketac.com/salles/lyon-acte-2-theatre.htm",
     ],
     hasMap: "https://maps.app.goo.gl/TwqZxYrurq5qRTXr5",
     areaServed: {
