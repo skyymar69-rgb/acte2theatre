@@ -354,14 +354,6 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
                 Plan du site
               </Link>
             </li>
-            <li>
-              <Link
-                href="/studio"
-                className="hover:text-or-300 transition-colors"
-              >
-                Espace admin
-              </Link>
-            </li>
           </ul>
         </div>
 

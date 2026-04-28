@@ -642,16 +642,17 @@ export default async function HomePage() {
       {vedettes.length === 0 && aVenir.length === 0 && (
         <section className="py-24">
           <div className="container max-w-2xl text-center">
-            <h2 className="mb-4">Bienvenue sur le nouveau site</h2>
-            <p className="text-lg text-ink-muted mb-6">
-              Aucun spectacle n&apos;a encore été ajouté. Connectez-vous au{" "}
-              <Link
-                href="/studio"
+            <h2 className="mb-4">La saison se prépare</h2>
+            <p className="text-lg text-ink-muted">
+              La programmation de la prochaine saison sera bientôt en ligne.
+              Pour ne rien manquer, écrivez-nous à{" "}
+              <a
+                href="mailto:acte2theatre@yahoo.fr"
                 className="text-rouge-600 dark:text-or-400 underline"
               >
-                back-office
-              </Link>{" "}
-              pour créer votre premier spectacle.
+                acte2theatre@yahoo.fr
+              </a>
+              .
             </p>
           </div>
         </section>

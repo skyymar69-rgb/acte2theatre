@@ -36,7 +36,9 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "^15.0.3",
+    "marked": "^18.0.2",
     "postcss": "^8.4.49",
+    "puppeteer": "^24.42.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
