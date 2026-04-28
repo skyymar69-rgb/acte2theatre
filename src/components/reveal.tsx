@@ -5,6 +5,9 @@ import { useEffect, useRef } from "react";
 /**
  * Wrapper qui reveal son enfant à l'entrée dans le viewport.
  * IntersectionObserver — performant, respecte prefers-reduced-motion via CSS.
+ *
+ * Note React 19 / TS strict : `keyof React.JSX.IntrinsicElements` au lieu de
+ * `keyof JSX.IntrinsicElements` (le namespace global JSX a été retiré).
  */
 export function Reveal({
   children,
@@ -13,7 +16,7 @@ export function Reveal({
   delay = 0,
 }: {
   children: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   className?: string;
   delay?: number;
 }) {
@@ -35,10 +38,13 @@ export function Reveal({
     return () => obs.disconnect();
   }, [delay]);
 
-  // @ts-expect-error — JSX dynamic tag with ref
+  const Component = Tag as React.ElementType;
   return (
-    <Tag ref={ref} className={`reveal ${className}`}>
+    <Component
+      ref={ref as unknown as React.Ref<HTMLElement>}
+      className={`reveal ${className}`}
+    >
       {children}
-    </Tag>
+    </Component>
   );
 }
