@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
+import { ContactCard } from "./contact-card";
 
 const NAV_ITEMS = [
   { href: "/spectacles", label: "Programmation" },
@@ -90,6 +91,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ContactCard />
             <ThemeToggle />
 
             <button
