@@ -410,11 +410,11 @@ export default async function HomePage() {
             </figcaption>
           </figure>
 
-          {/* Image 3 — vue depuis le bar */}
+          {/* Image 3 — espace bar / accueil */}
           <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
             <Image
-              src="/images/scene-vue-bar.webp"
-              alt="Façade intérieure d'Acte 2 Théâtre vue depuis l'espace bar, avec la banderole jaune Happy Culture et la scène en arrière-plan"
+              src="/images/bar.webp"
+              alt="Espace bar et accueil d'Acte 2 Théâtre — fauteuils en velours rouge, tables hautes en bois et écran lumineux, ambiance feutrée pour boire un verre avant ou après le spectacle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
