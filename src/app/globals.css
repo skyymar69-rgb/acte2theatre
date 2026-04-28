@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-curtain-50 text-curtain-900 font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl font-semibold; }
+  h2 { @apply text-3xl md:text-4xl font-semibold; }
+  h3 { @apply text-2xl font-semibold; }
+}
+
+@layer components {
+  .prose-acte2 {
+    @apply max-w-prose;
+  }
+
+  .prose-acte2 p {
+    @apply mb-4 leading-relaxed text-curtain-800;
+  }
+
+  .prose-acte2 a {
+    @apply text-stage-700 underline underline-offset-4 hover:text-stage-800;
+  }
+
+  .prose-acte2 h2 {
+    @apply mt-8 mb-3 text-2xl;
+  }
+
+  .prose-acte2 ul {
+    @apply list-disc list-inside mb-4 space-y-1;
+  }
+}
