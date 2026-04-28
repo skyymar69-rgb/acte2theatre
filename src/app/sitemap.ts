@@ -14,8 +14,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/spectacles", priority: 0.9, freq: "weekly" as const },
     { path: "/ateliers", priority: 0.8, freq: "weekly" as const },
     { path: "/location-salle", priority: 0.7, freq: "monthly" as const },
+    { path: "/entreprise", priority: 0.8, freq: "monthly" as const },
     { path: "/soutenir", priority: 0.6, freq: "monthly" as const },
     { path: "/contact", priority: 0.7, freq: "monthly" as const },
+    { path: "/plan-du-site", priority: 0.4, freq: "monthly" as const },
   ].map(({ path, priority, freq }) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),

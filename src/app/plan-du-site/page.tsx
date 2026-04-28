@@ -168,6 +168,14 @@ export default async function PlanDuSitePage() {
             </li>
             <li>
               <Link
+                href="/entreprise"
+                className="hover:text-rouge-600 dark:hover:text-or-400"
+              >
+                Espace entreprise
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/soutenir"
                 className="hover:text-rouge-600 dark:hover:text-or-400"
               >

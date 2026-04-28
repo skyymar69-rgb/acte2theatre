@@ -148,6 +148,72 @@ export default async function HomePage() {
         />
       </section>
 
+      {/* ──────────────── MANIFESTE / VALEURS ──────────────── */}
+      <section
+        aria-labelledby="manifeste-title"
+        className="container max-w-5xl py-14 md:py-20"
+      >
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="md:col-span-5">
+            <p className="text-rouge-600 dark:text-or-400 font-semibold uppercase tracking-[0.18em] text-xs mb-3">
+              Notre projet
+            </p>
+            <h2 id="manifeste-title" className="text-balance">
+              Un théâtre pour les enfants, les compagnies&nbsp;émergentes et la
+              location
+            </h2>
+          </div>
+
+          <div className="md:col-span-7 space-y-5 text-ink/90 text-pretty leading-relaxed">
+            <p className="text-lg">
+              <strong>Une grande partie de la programmation</strong> est dédiée
+              aux spectacles jeunes et très jeunes publics tout au long de la
+              saison, et particulièrement pendant les vacances scolaires.
+            </p>
+            <p>
+              Acte 2 Théâtre est aussi un lieu{" "}
+              <strong>accessible aux compagnies émergentes</strong> — un espace
+              ouvert à l&apos;expérience, à la créativité et au pas-de-côté. On
+              y croise des premières créations, des cartes blanches, des paris
+              artistiques.
+            </p>
+            <p>
+              Et parce qu&apos;une salle vit aussi quand elle est habitée
+              autrement, nous l&apos;ouvrons à la{" "}
+              <strong>
+                <Link
+                  href="/entreprise"
+                  className="text-rouge-600 dark:text-or-400 underline underline-offset-2"
+                >
+                  location pour vos événements professionnels
+                </Link>
+              </strong>{" "}
+              : séminaires, comités d&apos;entreprise, arbres de Noël,
+              répétitions ou tournages.
+            </p>
+
+            <ul className="grid grid-cols-2 gap-3 pt-3 not-prose">
+              <li className="flex items-center gap-2 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Jeune public dès 18&nbsp;mois
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Compagnies émergentes
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Stages vacances scolaires
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Salle disponible à la location
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ──────────────── DÉFINITION CANONIQUE (GEO / extractible IA) ──────────────── */}
       <section
         aria-label="Présentation"

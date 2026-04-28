@@ -50,6 +50,7 @@ const SITEMAP_GROUPS: { title: string; items: SitemapItem[] }[] = [
     items: [
       { href: "/ateliers", label: "Ateliers & stages", icon: GraduationCap },
       { href: "/location-salle", label: "Location de salle", icon: Building2 },
+      { href: "/entreprise", label: "Espace entreprise", icon: Building2 },
       { href: "/soutenir", label: "Nous soutenir", icon: Heart },
       { href: "/contact", label: "Contact & équipe", icon: Mail },
     ],
