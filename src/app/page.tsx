@@ -58,43 +58,57 @@ export default async function HomePage() {
 
         <div className="relative container max-w-5xl py-20 md:py-32 lg:py-40">
           <p className="text-or-400 font-medium uppercase tracking-[0.3em] text-xs md:text-sm mb-5">
-            Théâtre de proximité · Lyon 9 · Vaise
+            <span className="font-display italic normal-case tracking-normal text-base text-or-300/90">
+              Acte 2 · Happy Culture
+            </span>
+            <span className="ml-2">· Lyon 9 — Vaise</span>
           </p>
 
           <h1
             id="hero-title"
-            className="font-display !text-5xl md:!text-7xl lg:!text-8xl text-balance mb-6 leading-[1.05]"
+            className="font-display !text-4xl md:!text-6xl lg:!text-7xl text-balance mb-6 leading-[1.05]"
           >
-            Acte <span className="text-or-500 italic">2</span>{" "}
-            <span className="block md:inline">Théâtre</span>
+            Vivez le théâtre autrement,{" "}
+            <span className="text-or-500">à Lyon</span>
           </h1>
 
-          <p className="text-or-300/90 font-display italic text-2xl md:text-3xl mb-8 tracking-wide">
-            Happy Culture
+          <p className="text-lg md:text-xl text-craie-100/85 max-w-2xl mb-8 text-pretty leading-relaxed">
+            Saison <strong className="text-or-300">2025-2026</strong> —
+            spectacles jeune public, théâtre contemporain et classique,
+            séances scolaires, ateliers et stages. Une salle intime de
+            100&nbsp;places où l&apos;humain rencontre la scène, à deux
+            pas du quai Arloing.
           </p>
 
-          <p className="text-lg md:text-xl text-craie-100/85 max-w-2xl mb-10 text-pretty leading-relaxed">
-            Une saison riche en émotions&nbsp;: spectacles jeune public, théâtre
-            contemporain et classique, séances scolaires, ateliers et stages.
-            Au cœur de Lyon, une salle de 100 places où l&apos;humain et la
-            scène se rencontrent.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 mb-8">
             <Link
               href="/spectacles"
               className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 bg-rouge-600 hover:bg-rouge-500 text-white rounded-full font-semibold text-base shadow-scene transition-all hover:scale-[1.02]"
             >
               <Ticket className="w-5 h-5" aria-hidden="true" />
-              Voir la programmation
+              Réserver ma soirée
             </Link>
             <Link
               href="/ateliers"
               className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 border-2 border-or-500/60 hover:border-or-500 hover:bg-or-500/10 text-craie-100 rounded-full font-medium text-base transition-all"
             >
-              Ateliers & stages
+              Inscrire mon enfant à un atelier
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
+          </div>
+
+          {/* Trust bar — preuve sociale légère et factuelle */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-craie-100/70 mb-2">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-or-500" aria-hidden="true">★</span>
+              Théâtre indépendant lyonnais
+            </span>
+            <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
+            <span>Depuis 2007</span>
+            <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
+            <span>Billetterie sécurisée Mapado</span>
+            <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
+            <span>Abonnement 10 spectacles · 110€</span>
           </div>
 
           {/* Mini-stats / signature */}

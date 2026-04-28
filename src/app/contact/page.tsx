@@ -4,6 +4,7 @@ import {
 } from "@/components/page-statique-renderer";
 import { ContactForm } from "@/components/contact-form";
 import { GoogleMapEmbed } from "@/components/google-map-embed";
+import { NextShowsTeaser } from "@/components/next-shows-teaser";
 import { Star } from "lucide-react";
 
 export const revalidate = 3600;
@@ -68,6 +69,8 @@ export default async function ContactPage() {
         </header>
         <ContactForm />
       </section>
+
+      <NextShowsTeaser />
     </>
   );
 }

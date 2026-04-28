@@ -16,12 +16,14 @@ import {
   formatPrice,
   cn,
 } from "@/lib/utils";
-import { FileText, Clock, Users, Calendar, Ticket } from "lucide-react";
+import { FileText, Clock, Users, Calendar, Ticket, ShieldCheck } from "lucide-react";
 import {
   JsonLd,
   spectacleEventsJsonLd,
   breadcrumbJsonLd,
 } from "@/components/json-ld";
+import { Faq, spectacleFaq } from "@/components/faq";
+import { NextShowsTeaser } from "@/components/next-shows-teaser";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://acte2theatre.vercel.app";
@@ -46,13 +48,35 @@ export async function generateMetadata({
   });
   if (!spectacle) return {};
 
+  // Pattern SEO local : "Titre — Théâtre à Lyon · Mois Année · Acte 2 Théâtre"
+  // Capte les requêtes "[titre] Lyon" et "spectacle [mois année] Lyon".
+  const futureRep = (spectacle.representations ?? []).find(
+    (r) => new Date(r.dateHeure) >= new Date()
+  );
+  const moisAnnee = futureRep
+    ? new Intl.DateTimeFormat("fr-FR", {
+        month: "long",
+        year: "numeric",
+        timeZone: "Europe/Paris",
+      }).format(new Date(futureRep.dateHeure))
+    : "saison 2025-2026";
+
+  const titleSeo =
+    spectacle.seoTitre ??
+    `${spectacle.titre} — Théâtre à Lyon · ${moisAnnee}`;
+
   const description =
     spectacle.seoDescription ||
-    spectacle.resume ||
-    `${spectacle.titre}${spectacle.compagnie ? ` — ${spectacle.compagnie}` : ""}, à voir à Acte 2 Théâtre, Lyon.`;
+    (spectacle.resume
+      ? `${spectacle.resume.slice(0, 130)} · Réservez vos places dès ${
+          spectacle.tarifEnfant ?? spectacle.tarifAdulte ?? 9
+        }€ chez Acte 2 Théâtre, Lyon 9.`
+      : `${spectacle.titre}${
+          spectacle.compagnie ? ` — ${spectacle.compagnie}` : ""
+        } à Acte 2 Théâtre, Lyon. Réservation en ligne.`);
 
   return {
-    title: spectacle.seoTitre || spectacle.titre,
+    title: titleSeo,
     description,
     alternates: { canonical: `/spectacles/${slug}` },
     openGraph: {
@@ -296,6 +320,20 @@ export default async function SpectaclePage({
                   </ul>
                 </section>
               )}
+
+              {/* FAQ — extractible IA + rich snippets Google */}
+              <section className="mt-12 pt-10 border-t border-divider/15">
+                <Faq
+                  title="Bon à savoir"
+                  items={spectacleFaq({
+                    publicCible: spectacle.publicCible,
+                    dureeMinutes: spectacle.dureeMinutes,
+                    tarifAdulte: spectacle.tarifAdulte,
+                    tarifEnfant: spectacle.tarifEnfant,
+                    mapadoUrl: spectacle.mapadoUrl,
+                  })}
+                />
+              </section>
             </div>
 
             {/* Sidebar : dates + tarifs + CTA Mapado */}
@@ -378,32 +416,35 @@ export default async function SpectaclePage({
                 )}
 
                 {/* CTA réservation Mapado */}
-                {spectacle.mapadoUrl ? (
-                  <a
-                    href={spectacle.mapadoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full"
-                  >
-                    <Ticket className="w-4 h-4" aria-hidden="true" />
-                    Réserver
-                  </a>
-                ) : (
-                  <a
-                    href="https://acte2theatre.mapado.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full"
-                  >
-                    <Ticket className="w-4 h-4" aria-hidden="true" />
-                    Réserver sur Mapado
-                  </a>
-                )}
+                <a
+                  href={spectacle.mapadoUrl ?? "https://acte2theatre.mapado.com"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full"
+                >
+                  <Ticket className="w-4 h-4" aria-hidden="true" />
+                  Réserver mes places
+                </a>
+                <p className="mt-3 text-xs text-ink-muted flex items-start gap-1.5 leading-relaxed">
+                  <ShieldCheck
+                    className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-or-500"
+                    aria-hidden="true"
+                  />
+                  Paiement sécurisé via Mapado · Billets envoyés par email ·
+                  Places sur place 30&nbsp;min avant si disponibles.
+                </p>
               </div>
             </aside>
           </div>
         </div>
       </article>
+
+      {/* Internal linking : autres spectacles à venir */}
+      <NextShowsTeaser
+        title="Continuez la saison"
+        subtitle="D'autres rendez-vous à découvrir cette saison à Acte 2."
+        limit={3}
+      />
     </>
   );
 }

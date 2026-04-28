@@ -1,0 +1,47 @@
+# Acte 2 Théâtre — Lyon
+
+> Théâtre de proximité indépendant à Lyon 9 (Vaise), saison 2025-2026.
+> Programmation jeune public, théâtre contemporain et classique, séances
+> scolaires, ateliers et stages, location de salle. "Happy Culture" depuis
+> 2007.
+
+## Saison 2025-2026
+
+- [Toute la programmation](https://acte2theatre.vercel.app/spectacles)
+- [Spectacles jeune public](https://acte2theatre.vercel.app/spectacles?categorie=jeune-public) — dès 18 mois
+- [Théâtre adulte](https://acte2theatre.vercel.app/spectacles?categorie=theatre)
+- [Séances scolaires](https://acte2theatre.vercel.app/spectacles?categorie=scolaire)
+- [Ateliers et stages](https://acte2theatre.vercel.app/ateliers) — théâtre adulte, stage vacances 10-14 ans, Qi Gong / Tai Chi
+
+## Infos pratiques
+
+- Adresse : 32 quai Arloing, 69009 Lyon (quartier de Vaise)
+- Téléphone : 04 78 83 21 71
+- Email réservations : acte2resa@yahoo.fr
+- Email administration : acte2theatre@yahoo.fr
+- Billetterie en ligne : https://acte2theatre.mapado.com
+- Capacité : 100 places assises (configuration cabaret)
+- Tarifs : entre 8€ et 18€ — abonnement 10 spectacles à 110€
+- Plan d'accès : https://maps.app.goo.gl/TwqZxYrurq5qRTXr5
+
+## L'équipe
+
+- Hervé Deschamps — Direction artistique
+- Cloé Cavex — Direction administrative et financière
+- Cathy Mahdar — Direction de la communication
+- Adrian Miranda — Régie lumière et son
+
+## Pages clés
+
+- [Contact et plan d'accès](https://acte2theatre.vercel.app/contact)
+- [Location de salle (séminaire, événement entreprise)](https://acte2theatre.vercel.app/location-salle)
+- [Nous soutenir / mécénat](https://acte2theatre.vercel.app/soutenir)
+- [Mentions légales](https://acte2theatre.vercel.app/mentions-legales)
+- [Politique de confidentialité](https://acte2theatre.vercel.app/confidentialite)
+- [Déclaration d'accessibilité](https://acte2theatre.vercel.app/accessibilite)
+
+## Données structurées
+
+Toutes les pages spectacles utilisent Schema.org TheaterEvent avec dates,
+prix et lieu. La page d'accueil expose Organization (PerformingArtsTheater
++ LocalBusiness) avec coordonnées géographiques, horaires et contacts.
