@@ -56,7 +56,9 @@ export async function POST(req: NextRequest) {
       now: Date.now(),
     });
   } catch (err) {
-    console.error("[revalidate] error:", err);
+    if (process.env.NODE_ENV !== "production") {
+      console.error("[revalidate] error:", err);
+    }
     return NextResponse.json(
       { message: (err as Error).message },
       { status: 500 }

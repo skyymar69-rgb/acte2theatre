@@ -26,7 +26,7 @@ export function SpectacleCard({
       <Link
         href={`/spectacles/${spectacle.slug}`}
         aria-label={`Voir le détail de ${spectacle.titre}`}
-        className="block aspect-[4/3] relative bg-nuit-900 overflow-hidden"
+        className="block aspect-[4/3] relative bg-nuit-900 overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-or-500 focus-visible:outline-offset-2"
       >
         {spectacle.imagePrincipale && (
           <Image
@@ -34,8 +34,9 @@ export function SpectacleCard({
             alt={spectacle.imagePrincipale.alt || spectacle.titre}
             fill
             priority={priority}
+            loading={priority ? undefined : "lazy"}
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             placeholder={
               spectacle.imagePrincipale.asset?.metadata?.lqip ? "blur" : undefined
             }

@@ -43,11 +43,32 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color-scheme: light dark;
+    scroll-behavior: smooth;
+  }
+
+  /* Décale les ancres pour qu'elles ne passent pas sous le header sticky (~80px) */
+  :target,
+  main,
+  section[id],
+  article[id],
+  h1[id], h2[id], h3[id], h4[id] {
+    scroll-margin-top: 6rem;
   }
 
   body {
     @apply bg-page text-ink font-sans transition-colors duration-300;
+    text-rendering: optimizeLegibility;
   }
+
+  /* Style cohérent pour TOUS les liens et boutons clavier (RGAA 10.7) */
+  :focus-visible {
+    outline: 2px solid rgb(245 197 24);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Évite le scroll horizontal en cas d'élément qui dépasse */
+  html, body { overflow-x: hidden; }
 
   h1, h2, h3, h4 {
     @apply font-display tracking-tight;
@@ -160,7 +181,41 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
+    .group-hover\:scale-\[1\.03\],
+    .group-hover\:scale-\[1\.04\],
+    .group-hover\:scale-\[1\.05\],
+    .hover\:scale-\[1\.02\],
+    .hover\:scale-\[1\.03\] {
+      transform: none !important;
+    }
+  }
+
+  /* Image fluide par défaut */
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Stylesheet d'impression — propre, sans grain, sans halo */
+  @media print {
+    .bg-grain::after,
+    .bg-gradient-scene,
+    header[role="banner"],
+    footer[role="contentinfo"],
+    .no-print {
+      display: none !important;
+    }
+    body { background: #fff !important; color: #000 !important; }
+    a { text-decoration: underline; }
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.85em;
+      color: #555;
+    }
+    h1, h2, h3 { page-break-after: avoid; }
+    img { max-width: 100% !important; }
   }
 }
 
@@ -203,6 +258,18 @@
   box-shadow:
     0 0 0 1px rgb(245 197 24 / 0.2),
     0 8px 24px -8px rgb(245 197 24 / 0.45);
+}
+
+/* Animation discrète d'entrée pour le hero (titre + accroche) */
+@keyframes acte2-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: acte2-fade-up 0.6s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up { animation: none !important; }
 }
 
 /* Citation décorative type "guillemets géants" */

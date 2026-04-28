@@ -66,10 +66,35 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: "L'Acte 2 — Happy Culture",
-    images: [{ url: "/images/scene-banderole.jpg", width: 1080, height: 1080 }],
+    title: "L'Acte 2 — Happy Culture · Lyon",
+    description:
+      "Théâtre de proximité à Lyon 9 (Vaise) — programmation jeune public, théâtre adulte, ateliers, location de salle. Saison 2025-2026.",
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "L'Acte 2 — Happy Culture · Théâtre à Lyon 9 Vaise",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "L'Acte 2 — Happy Culture · Lyon",
+    description:
+      "Théâtre indépendant à Lyon 9 — saison 2025-2026, ateliers, location de salle.",
+    images: ["/og-default.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   manifest: "/site.webmanifest",
   icons: {
@@ -145,6 +170,13 @@ export default async function RootLayout({
         <JsonLd data={websiteJsonLd(siteUrl)} />
       </head>
       <body className="min-h-screen flex flex-col">
+        <noscript>
+          <div className="bg-or-500 text-nuit-950 text-sm text-center py-2 px-4 font-medium">
+            Ce site fonctionne mieux avec JavaScript activé. Toutes les
+            informations restent accessibles, mais certaines interactions
+            (carte, formulaires, animations) seront limitées.
+          </div>
+        </noscript>
         <ThemeProvider>
           <a href="#main" className="skip-link">
             Aller au contenu principal

@@ -102,15 +102,17 @@ export async function POST(req: NextRequest) {
   }
 
   // TODO Phase ultérieure : brancher un fournisseur d'emails ici (Resend, etc.)
-  console.log("[contact-form]", {
-    timestamp: new Date().toISOString(),
-    ip,
-    nom,
-    email,
-    telephone: telephone || null,
-    sujet: sujet || null,
-    messageLen: message.length,
-  });
+  if (process.env.NODE_ENV !== "production") {
+    console.log("[contact-form]", {
+      timestamp: new Date().toISOString(),
+      ip,
+      nom,
+      email,
+      telephone: telephone || null,
+      sujet: sujet || null,
+      messageLen: message.length,
+    });
+  }
 
   lastSentByIp.set(ip, Date.now());
 

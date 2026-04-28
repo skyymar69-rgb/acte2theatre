@@ -56,6 +56,7 @@ function Wordmark() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => setOpen(false), [pathname]);
@@ -71,11 +72,23 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  // Effet d'élévation subtil quand on a scrollé (>8px)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <header
         role="banner"
-        className="sticky top-0 z-40 bg-page/85 backdrop-blur-md border-b border-divider/40 transition-colors"
+        className={`sticky top-0 z-40 bg-page/85 backdrop-blur-md border-b transition-all ${
+          scrolled
+            ? "border-divider/40 shadow-[0_4px_18px_-12px_rgba(0,0,0,0.35)]"
+            : "border-transparent"
+        }`}
       >
         <div className="container flex items-center justify-between h-16 md:h-20 gap-4">
           <Wordmark />
@@ -92,10 +105,10 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                  className={`relative px-3 py-2 text-sm font-medium rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
                     isActive
-                      ? "text-rouge-600 dark:text-or-400"
-                      : "text-ink-muted hover:text-ink hover:bg-or-500/5"
+                      ? "text-rouge-600 dark:text-or-400 after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:bg-or-500 after:rounded-full"
+                      : "text-ink/85 hover:text-ink hover:bg-or-500/5"
                   }`}
                 >
                   {item.label}

@@ -107,10 +107,10 @@ export default async function SpectaclesPage({
           href="/spectacles"
           aria-current={!categorie ? "page" : undefined}
           className={cn(
-            "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+            "px-4 py-2 rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page",
             !categorie
-              ? "bg-nuit-950 text-craie-100 dark:bg-or-500 dark:text-nuit-950"
-              : "bg-surface-2 text-ink hover:bg-or-500/10"
+              ? "bg-nuit-950 text-craie-100 dark:bg-or-500 dark:text-nuit-950 shadow-sm"
+              : "bg-surface-2 text-ink hover:bg-or-500/10 hover:scale-[1.02] motion-reduce:hover:scale-100"
           )}
         >
           Tous
@@ -121,10 +121,10 @@ export default async function SpectaclesPage({
             href={`/spectacles?categorie=${cat.slug}`}
             aria-current={categorie === cat.slug ? "page" : undefined}
             className={cn(
-              "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+              "px-4 py-2 rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page",
               categorie === cat.slug
-                ? "bg-nuit-950 text-craie-100 dark:bg-or-500 dark:text-nuit-950"
-                : "bg-surface-2 text-ink hover:bg-or-500/10"
+                ? "bg-nuit-950 text-craie-100 dark:bg-or-500 dark:text-nuit-950 shadow-sm"
+                : "bg-surface-2 text-ink hover:bg-or-500/10 hover:scale-[1.02] motion-reduce:hover:scale-100"
             )}
           >
             {cat.nom}

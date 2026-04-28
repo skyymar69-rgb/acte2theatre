@@ -343,6 +343,7 @@ export default async function HomePage() {
           src="/images/scene-banderole.webp"
           alt=""
           fill
+          loading="lazy"
           sizes="100vw"
           className="object-cover opacity-25"
           aria-hidden="true"
@@ -373,6 +374,7 @@ export default async function HomePage() {
               src="/images/sieges-rouges.webp"
               alt="Rangées de sièges en velours rouge dans la salle de L'Acte 2, Lyon 9 Vaise"
               fill
+              loading="lazy"
               sizes="(min-width:768px) 50vw, 100vw"
               className="object-cover"
             />
@@ -495,6 +497,7 @@ export default async function HomePage() {
               alt="Salle de L'Acte 2 vue depuis le balcon : sièges rouges en velours et scène équipée de projecteurs et d'une échelle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 60vw, 100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <figcaption className="absolute bottom-0 inset-x-0 p-4 md:p-6 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
@@ -510,6 +513,7 @@ export default async function HomePage() {
               alt="Scène de L'Acte 2 avec sa grande banderole jaune « L'Acte 2 — Happy Culture » et ses chaises en bois rouge avant un spectacle"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
@@ -525,6 +529,7 @@ export default async function HomePage() {
               alt="Espace bar et accueil de L'Acte 2 — fauteuils en velours rouge, tables hautes en bois et écran lumineux, ambiance feutrée pour boire un verre avant ou après le spectacle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
@@ -540,6 +545,7 @@ export default async function HomePage() {
               alt="Rangées de sièges en velours rouge dans la salle de L'Acte 2, configuration cabaret intimiste de 100 places à Lyon"
               fill
               sizes="(min-width:768px) 50vw, 100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
@@ -555,6 +561,7 @@ export default async function HomePage() {
               alt="Identité visuelle de L'Acte 2 : graffiti street-art « Acte 2 », abeille jaune emblématique « Happy Culture » et intérieur de la salle aux sièges rouges"
               fill
               sizes="(min-width:768px) 50vw, 100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">

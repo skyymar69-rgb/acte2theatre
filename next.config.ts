@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  compress: true,
   images: {
     remotePatterns: [
       {
@@ -11,9 +14,12 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
     taint: true,
+    optimizePackageImports: ["lucide-react", "@portabletext/react"],
   },
   // Sécurité + performance via headers HTTP (Vercel les applique au runtime)
   async headers() {
@@ -100,6 +106,26 @@ const nextConfig: NextConfig = {
         source: "/.well-known/security.txt",
         headers: [
           { key: "Content-Type", value: "text/plain; charset=utf-8" },
+        ],
+      },
+      // Cache moyen pour favicons et icônes PWA
+      {
+        source: "/:icon(favicon|favicon-16x16|favicon-32x32|favicon-48x48|favicon-96x96|apple-touch-icon|android-chrome-192x192|android-chrome-512x512).(ico|png)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      // OG image
+      {
+        source: "/og-default.jpg",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, immutable",
+          },
         ],
       },
     ];

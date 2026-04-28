@@ -81,7 +81,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
           <Link
             href="/"
             aria-label="L'Acte 2 — accueil"
-            className="inline-flex items-center gap-3 mb-5 group"
+            className="inline-flex items-center gap-3 mb-5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950 rounded"
           >
             <span className="relative w-12 h-12 rounded-full bg-nuit-900 ring-1 ring-or-500/30 overflow-hidden flex-shrink-0 group-hover:ring-or-500/60 transition-colors">
               <Image
@@ -143,7 +143,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Page Facebook L'Acte 2 (ouvre dans un nouvel onglet)"
-                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors"
+                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors hover:scale-110 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950"
               >
                 <Facebook className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -154,7 +154,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Compte Instagram (ouvre dans un nouvel onglet)"
-                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors"
+                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors hover:scale-110 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950"
               >
                 <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -165,7 +165,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chaîne YouTube (ouvre dans un nouvel onglet)"
-                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors"
+                className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors hover:scale-110 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950"
               >
                 <Youtube className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -175,7 +175,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Billetterie Mapado (ouvre dans un nouvel onglet)"
-              className="p-2.5 rounded-full bg-rouge-600 hover:bg-rouge-500 text-white transition-colors"
+              className="p-2.5 rounded-full bg-rouge-600 hover:bg-rouge-500 text-white transition-colors hover:scale-110 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950"
             >
               <Ticket className="w-4 h-4" aria-hidden="true" />
             </a>
