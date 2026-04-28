@@ -99,7 +99,7 @@ export default async function HomePage() {
           </div>
 
           {/* Trust bar — preuve sociale légère et factuelle */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-craie-100/70 mb-2">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-craie-100/70 mb-3">
             <span className="inline-flex items-center gap-1.5">
               <span className="text-or-500" aria-hidden="true">★</span>
               Théâtre indépendant lyonnais
@@ -107,10 +107,51 @@ export default async function HomePage() {
             <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
             <span>Depuis 2007</span>
             <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
-            <span>Billetterie sécurisée Mapado</span>
-            <span className="hidden sm:inline-block w-px h-3 bg-craie-100/30" aria-hidden="true" />
             <span>Abonnement 10 spectacles · 110€</span>
           </div>
+
+          {/* Billetteries — 3 plateformes au même rang */}
+          <p className="text-[0.62rem] uppercase tracking-[0.32em] text-craie-100/55 mb-2">
+            Billetterie sécurisée
+          </p>
+          <ul className="flex flex-wrap items-center gap-2">
+            <li>
+              <a
+                href="https://acte2theatre.mapado.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-nuit-900 hover:bg-or-500/15 border border-or-500/25 hover:border-or-500/60 text-craie-100 text-xs font-medium transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Mapado
+                <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.billetreduc.com/4486/salle.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-nuit-900 hover:bg-or-500/15 border border-or-500/25 hover:border-or-500/60 text-craie-100 text-xs font-medium transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                BilletReduc
+                <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.ticketac.com/salles/lyon-acte-2-theatre.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-nuit-900 hover:bg-or-500/15 border border-or-500/25 hover:border-or-500/60 text-craie-100 text-xs font-medium transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
+                Ticketac
+                <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
+              </a>
+            </li>
+          </ul>
 
           {/* Mini-stats / signature */}
           <dl className="mt-14 grid grid-cols-3 gap-6 max-w-lg">
@@ -479,7 +520,7 @@ export default async function HomePage() {
           {/* Image 3 — espace bar / accueil */}
           <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
             <Image
-              src="/images/bar.webp"
+              src="/images/espace-bar.webp"
               alt="Espace bar et accueil d'Acte 2 Théâtre — fauteuils en velours rouge, tables hautes en bois et écran lumineux, ambiance feutrée pour boire un verre avant ou après le spectacle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
