@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { QRCodeSVG } from "qrcode.react";
 import {
   IdCard,
@@ -65,8 +66,12 @@ function downloadVCard() {
 
 export function ContactCard() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Mount flag pour le portail (évite mismatch SSR)
+  useEffect(() => setMounted(true), []);
 
   // ESC ferme + lock scroll
   useEffect(() => {
@@ -107,17 +112,23 @@ export function ContactCard() {
         <IdCard className="w-4 h-4 text-or-500" aria-hidden="true" />
       </button>
 
-      {open && (
+      {open &&
+        mounted &&
+        createPortal(
         <div
           role="dialog"
           aria-modal="true"
           aria-labelledby="contact-card-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-nuit-950/70 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] overflow-y-auto bg-nuit-950/70 backdrop-blur-sm"
           onClick={(e) => e.target === e.currentTarget && setOpen(false)}
         >
           <div
+            className="min-h-full flex items-center justify-center p-4 sm:p-6"
+            onClick={(e) => e.target === e.currentTarget && setOpen(false)}
+          >
+          <div
             ref={dialogRef}
-            className="relative w-full max-w-2xl bg-surface text-ink rounded-2xl shadow-scene border border-or-500/20 overflow-hidden animate-fade-in-up"
+            className="relative w-full max-w-2xl my-4 bg-surface text-ink rounded-2xl shadow-scene border border-or-500/20 overflow-hidden animate-fade-in-up"
           >
             {/* Liseré or en haut */}
             <div className="h-1 bg-gradient-to-r from-or-500 via-or-300 to-or-500" />
@@ -189,7 +200,9 @@ export function ContactCard() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </div>,
+        document.body
       )}
     </>
   );
@@ -215,15 +228,16 @@ function QrTile({
       rel="noopener noreferrer"
       className="group flex flex-col items-center text-center p-4 rounded-xl bg-surface-2 hover:bg-or-500/5 border border-divider/10 hover:border-or-500/40 transition-all"
     >
-      <div className="bg-white rounded-lg p-2 mb-3 shadow-sm">
+      <div className="bg-white rounded-lg p-2 mb-3 shadow-sm flex items-center justify-center">
         <QRCodeSVG
           value={value}
-          size={120}
+          size={128}
           level="M"
-          marginSize={1}
+          marginSize={2}
           fgColor="#0a0a0a"
           bgColor="#ffffff"
           aria-label={`QR Code ${title}`}
+          className="block w-32 h-32"
         />
       </div>
       <div className="flex items-center gap-1.5 text-or-600 dark:text-or-400 mb-0.5">
