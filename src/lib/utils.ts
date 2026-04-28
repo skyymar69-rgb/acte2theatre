@@ -22,6 +22,29 @@ export function formatDateTime(iso: string | Date): string {
   });
 }
 
+/**
+ * Format relatif élégant : "Demain · 20h", "Samedi · 14h30", "Dans 3 semaines"
+ * Si la date est trop loin (>30 jours), retourne le format date long.
+ */
+export function formatRelative(iso: string | Date): string {
+  const date = new Date(iso);
+  const now = new Date();
+  const diffMs = date.getTime() - now.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) return formatInTimeZone(date, TZ, "d MMM", { locale: fr });
+  if (diffDays === 0) {
+    return "Aujourd'hui · " + formatInTimeZone(date, TZ, "HH'h'mm", { locale: fr });
+  }
+  if (diffDays === 1) {
+    return "Demain · " + formatInTimeZone(date, TZ, "HH'h'mm", { locale: fr });
+  }
+  if (diffDays < 7) {
+    return formatInTimeZone(date, TZ, "EEEE · HH'h'mm", { locale: fr });
+  }
+  return formatInTimeZone(date, TZ, "EEE d MMM", { locale: fr });
+}
+
 export function formatPrice(amount: number | undefined): string {
   if (amount === undefined || amount === null) return "";
   return new Intl.NumberFormat("fr-FR", {

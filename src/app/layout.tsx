@@ -10,6 +10,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { AccessibilityToggle } from "@/components/accessibility-toggle";
+import { ToastHost } from "@/components/toast";
 import {
   JsonLd,
   organizationJsonLd,
@@ -124,6 +125,22 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Performance — preconnect aux origines critiques */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://acte2theatre.mapado.com" />
+
+        {/* Pré-chargement de l'image hero pour LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero.webp"
+          fetchPriority="high"
+        />
+
+        {/* Données structurées globales */}
         <JsonLd data={organizationJsonLd(siteUrl)} />
         <JsonLd data={websiteJsonLd(siteUrl)} />
       </head>
@@ -140,6 +157,7 @@ export default async function RootLayout({
           <SiteFooter parametres={parametres} />
           <ScrollToTop />
           <AccessibilityToggle />
+          <ToastHost />
           <CookieBanner />
         </ThemeProvider>
       </body>

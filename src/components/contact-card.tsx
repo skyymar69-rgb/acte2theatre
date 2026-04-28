@@ -12,6 +12,7 @@ import {
   Star,
   Globe2,
 } from "lucide-react";
+import { emitToast } from "./toast";
 
 const SITE_URL = "https://acte2theatre.vercel.app";
 const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/TwqZxYrurq5qRTXr5";
@@ -62,6 +63,7 @@ function downloadVCard() {
   a.click();
   document.body.removeChild(a);
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+  emitToast("Carte de contact téléchargée. Ajoutez-nous à vos contacts !");
 }
 
 export function ContactCard() {

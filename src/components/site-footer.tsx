@@ -268,6 +268,14 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
             </li>
             <li>
               <Link
+                href="/plan-du-site"
+                className="hover:text-or-300 transition-colors"
+              >
+                Plan du site
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/studio"
                 className="hover:text-or-300 transition-colors"
               >

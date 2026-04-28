@@ -124,6 +124,19 @@ export function websiteJsonLd(siteUrl: string) {
   };
 }
 
+/** Schéma Speakable — déclare les sections lisibles par assistants vocaux */
+export function speakableJsonLd(siteUrl: string, pagePath: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}${pagePath}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[data-speakable]"],
+    },
+  };
+}
+
 interface SpectacleEventInput {
   siteUrl: string;
   titre: string;

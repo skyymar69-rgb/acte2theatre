@@ -32,7 +32,7 @@ export default async function HomePage() {
     <>
       {/* ──────────────── HERO ──────────────── */}
       <section
-        className="relative isolate overflow-hidden bg-nuit-950 text-craie-100"
+        className="relative isolate overflow-hidden bg-nuit-950 text-craie-100 bg-grain"
         aria-labelledby="hero-title"
       >
         {/* Image de fond — vue panoramique du hall Acte 2 (purement décorative) */}
@@ -83,7 +83,8 @@ export default async function HomePage() {
           <div className="flex flex-wrap gap-3 mb-8">
             <Link
               href="/spectacles"
-              className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 bg-rouge-600 hover:bg-rouge-500 text-white rounded-full font-semibold text-base shadow-scene transition-all hover:scale-[1.02]"
+              data-speakable=""
+              className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 bg-rouge-600 hover:bg-rouge-500 text-white rounded-full font-semibold text-base shadow-scene glow-or transition-all hover:scale-[1.02]"
             >
               <Ticket className="w-5 h-5" aria-hidden="true" />
               Réserver ma soirée

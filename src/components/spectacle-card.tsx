@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { SpectaclePreview } from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/image";
-import { formatDate, formatDuration, cn } from "@/lib/utils";
+import { formatRelative, formatDuration, cn } from "@/lib/utils";
 import { Calendar, Clock, Users } from "lucide-react";
 
 export function SpectacleCard({
@@ -108,9 +108,8 @@ export function SpectacleCard({
                 className="w-3.5 h-3.5 text-or-500"
                 aria-hidden="true"
               />
-              <span className="text-ink-muted">Dès le </span>
               <strong className="font-semibold">
-                {formatDate(prochaineDate, "d MMM")}
+                {formatRelative(prochaineDate)}
               </strong>
             </span>
           ) : (
