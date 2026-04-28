@@ -7,6 +7,11 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CookieBanner } from "@/components/cookie-banner";
+import {
+  JsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/components/json-ld";
 import "./globals.css";
 
 const inter = Inter({
@@ -86,12 +91,19 @@ export default async function RootLayout({
     tags: ["parametres"],
   });
 
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://acte2theatre.vercel.app";
+
   return (
     <html
       lang="fr"
       className={`${inter.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <JsonLd data={organizationJsonLd(siteUrl)} />
+        <JsonLd data={websiteJsonLd(siteUrl)} />
+      </head>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
           <a href="#main" className="skip-link">
