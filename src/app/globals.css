@@ -2,48 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * ────────────────────────────────────────────────────────────────────────────
+ *  Système de thèmes Acte 2 Théâtre
+ *  Palette officielle : noir scène, or rideau, rouge sang, craie projo.
+ *  Le thème par défaut est CLAIR. La classe .dark sur <html> bascule en sombre.
+ * ────────────────────────────────────────────────────────────────────────────
+ */
+
 :root {
+  /* Polices */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
+
+  /* Tokens sémantiques — thème CLAIR (par défaut) */
+  --c-page: 255 251 236;        /* craie-100 — fond chaud crème */
+  --c-surface: 255 255 255;     /* blanc pur pour cards */
+  --c-surface-2: 254 243 207;   /* craie-200 — surface secondaire */
+  --c-ink: 10 10 10;            /* noir scène */
+  --c-ink-muted: 58 58 63;      /* nuit-700 */
+  --c-divider: 10 10 10;        /* combiné avec opacity Tailwind border-divider/10 */
+  --c-accent: 201 21 30;        /* rouge sang */
+  --c-accent-2: 245 197 24;     /* or rideau */
+}
+
+.dark {
+  /* Tokens sémantiques — thème SOMBRE */
+  --c-page: 10 10 10;           /* nuit-950 */
+  --c-surface: 20 20 22;        /* nuit-900 */
+  --c-surface-2: 37 37 40;      /* nuit-800 */
+  --c-ink: 255 251 236;         /* craie-100 */
+  --c-ink-muted: 195 195 200;   /* gris clair lisible */
+  --c-divider: 245 197 24;      /* or rideau (utiliser border-divider/20 pour atténuer) */
+  --c-accent: 245 197 24;       /* or rideau dominant en sombre */
+  --c-accent-2: 201 21 30;      /* rouge en accent */
 }
 
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: light dark;
   }
 
   body {
-    @apply bg-curtain-50 text-curtain-900 font-sans;
+    @apply bg-page text-ink font-sans transition-colors duration-300;
   }
 
   h1, h2, h3, h4 {
     @apply font-display tracking-tight;
   }
 
-  h1 { @apply text-4xl md:text-5xl font-semibold; }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-semibold; }
   h2 { @apply text-3xl md:text-4xl font-semibold; }
   h3 { @apply text-2xl font-semibold; }
+
+  /* Focus visible accessible (RGAA) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-or-500 ring-offset-2 ring-offset-page;
+  }
+
+  ::selection {
+    @apply bg-or-400 text-nuit-950;
+  }
 }
 
 @layer components {
+  /* Bannière "Acte 2 Théâtre — Happy Culture" en typo Playfair Display */
+  .stencil-banner {
+    @apply font-display uppercase tracking-wider;
+  }
+
   .prose-acte2 {
     @apply max-w-prose;
   }
 
   .prose-acte2 p {
-    @apply mb-4 leading-relaxed text-curtain-800;
+    @apply mb-4 leading-relaxed text-ink/90;
   }
 
   .prose-acte2 a {
-    @apply text-stage-700 underline underline-offset-4 hover:text-stage-800;
+    @apply text-rouge-600 underline underline-offset-4 hover:text-rouge-700 dark:text-or-400 dark:hover:text-or-300;
   }
 
   .prose-acte2 h2 {
     @apply mt-8 mb-3 text-2xl;
   }
 
+  .prose-acte2 h3 {
+    @apply mt-6 mb-2 text-xl;
+  }
+
   .prose-acte2 ul {
     @apply list-disc list-inside mb-4 space-y-1;
+  }
+
+  /* Skip link accessibilité */
+  .skip-link {
+    @apply absolute -top-12 left-2 z-50 bg-or-500 text-nuit-950 px-4 py-2 font-semibold rounded focus:top-2 transition-all;
+  }
+
+  /* Bouton primaire (CTA) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-rouge-600 hover:bg-rouge-700 text-white rounded font-semibold transition-all shadow-sm hover:shadow-scene focus-visible:ring-or-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-ink/20 hover:border-or-500 hover:bg-or-500/10 text-ink rounded font-medium transition-all;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 text-ink-muted hover:text-ink rounded transition-colors;
+  }
+
+  /* Card spectacle — blur-up image + overlay subtil */
+  .card-spectacle {
+    @apply group bg-surface rounded-lg overflow-hidden border border-divider/50 hover:border-or-500/40 transition-all duration-300 hover:shadow-scene flex flex-col;
+  }
+
+  .card-spectacle-image {
+    @apply block aspect-[4/3] relative bg-surface-2 overflow-hidden;
+  }
+
+  .card-spectacle-image img {
+    @apply object-cover transition-transform duration-500 group-hover:scale-[1.04];
+  }
+
+  /* Tag catégorie */
+  .tag-category {
+    @apply inline-block text-[10px] font-bold uppercase tracking-[0.18em] px-2 py-1 rounded bg-or-500/15 text-or-700 dark:text-or-400;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Lazy-load blur-up : transition d'opacité quand l'image est loaded */
+  .blur-up {
+    @apply transition-[filter,opacity] duration-700;
+    filter: blur(12px);
+    opacity: 0.6;
+  }
+  .blur-up.is-loaded {
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  /* Diviseur en or */
+  .divider-or {
+    @apply h-px bg-gradient-to-r from-transparent via-or-500/50 to-transparent;
+  }
+
+  /* Pause animations pour utilisateurs sensibles (RGAA) */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./theme-toggle";
 
 const NAV_ITEMS = [
   { href: "/spectacles", label: "Programmation" },
@@ -12,16 +13,38 @@ const NAV_ITEMS = [
   { href: "/contact", label: "Contact" },
 ];
 
+/**
+ * Wordmark Acte 2 Théâtre — Happy Culture
+ * - Playfair Display, "2" en or rideau, "Happy Culture" en sous-titre
+ * - S'adapte automatiquement au thème (couleurs sémantiques)
+ */
+function Wordmark() {
+  return (
+    <Link
+      href="/"
+      aria-label="Acte 2 Théâtre — accueil"
+      className="group flex flex-col items-start leading-none -my-1"
+    >
+      <span className="font-display text-[1.45rem] md:text-[1.65rem] font-semibold tracking-tight">
+        Acte&nbsp;
+        <span className="text-or-500 group-hover:text-or-400 transition-colors">
+          2
+        </span>{" "}
+        Théâtre
+      </span>
+      <span className="text-[0.62rem] uppercase tracking-[0.32em] text-ink-muted mt-0.5">
+        Happy&nbsp;Culture
+      </span>
+    </Link>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close menu when navigating to a new page
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
-  // Lock body scroll + close on Escape when menu is open
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -35,51 +58,66 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-curtain-50/95 backdrop-blur border-b border-curtain-200">
-        <div className="container flex items-center justify-between h-16">
-          <Link
-            href="/"
-            className="font-display text-xl font-semibold tracking-tight"
-          >
-            Acte 2 <span className="text-stage-600">Théâtre</span>
-          </Link>
+      <header
+        role="banner"
+        className="sticky top-0 z-40 bg-page/85 backdrop-blur-md border-b border-divider/40 transition-colors"
+      >
+        <div className="container flex items-center justify-between h-16 md:h-20 gap-4">
+          <Wordmark />
 
-          <nav className="hidden md:flex items-center gap-6">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-curtain-700 hover:text-stage-700 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav
+            aria-label="Navigation principale"
+            className="hidden md:flex items-center gap-1"
+          >
+            {NAV_ITEMS.map((item) => {
+              const isActive =
+                pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                    isActive
+                      ? "text-rouge-600 dark:text-or-400"
+                      : "text-ink-muted hover:text-ink hover:bg-or-500/5"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="md:hidden p-2 -mr-2 text-curtain-700"
-            aria-label="Ouvrir le menu"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-divider/40 hover:border-or-500/60 text-ink"
+              aria-label="Ouvrir le menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
             >
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -88,8 +126,8 @@ export function SiteHeader() {
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
-        aria-label="Navigation principale"
-        className={`fixed inset-0 z-50 bg-curtain-900 text-curtain-50 md:hidden transition-opacity duration-200 ${
+        aria-label="Navigation mobile"
+        className={`fixed inset-0 z-50 bg-nuit-950 text-craie-100 md:hidden transition-opacity duration-200 ${
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -98,14 +136,14 @@ export function SiteHeader() {
         <div className="container flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-display text-xl font-semibold tracking-tight text-curtain-50"
+            className="font-display text-xl font-semibold tracking-tight text-craie-100"
           >
-            Acte 2 <span className="text-stage-400">Théâtre</span>
+            Acte <span className="text-or-500">2</span> Théâtre
           </Link>
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="p-2 -mr-2 text-curtain-50"
+            className="p-2 -mr-2 text-craie-100 hover:text-or-400 transition-colors"
             aria-label="Fermer le menu"
           >
             <svg
@@ -118,6 +156,7 @@ export function SiteHeader() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <line x1="18" x2="6" y1="6" y2="18" />
               <line x1="6" x2="18" y1="6" y2="18" />
@@ -126,13 +165,17 @@ export function SiteHeader() {
         </div>
         <nav className="container flex flex-col gap-1 pt-8">
           {NAV_ITEMS.map((item) => {
-            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const isActive =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block py-4 text-2xl font-display border-b border-curtain-700 transition-colors ${
-                  isActive ? "text-stage-400" : "text-curtain-50 hover:text-stage-300"
+                aria-current={isActive ? "page" : undefined}
+                className={`block py-4 text-2xl font-display border-b border-nuit-800 transition-colors ${
+                  isActive
+                    ? "text-or-400"
+                    : "text-craie-100 hover:text-or-300"
                 }`}
               >
                 {item.label}
