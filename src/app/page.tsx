@@ -358,6 +358,104 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* ──────────────── GALERIE — LE THÉÂTRE EN IMAGES ──────────────── */}
+      <section
+        aria-labelledby="galerie-title"
+        className="container py-16 md:py-24"
+      >
+        <header className="mb-10 max-w-2xl">
+          <p className="text-rouge-600 dark:text-or-400 font-semibold uppercase tracking-[0.18em] text-xs mb-2">
+            Découvrir la salle
+          </p>
+          <h2 id="galerie-title" className="text-balance">
+            Le théâtre en images
+          </h2>
+          <p className="text-ink-muted mt-3 text-pretty">
+            Cent fauteuils en velours rouge, une scène intimiste éclairée par
+            ses projecteurs, l&apos;enseigne jaune <em>Happy Culture</em> qui
+            signe l&apos;esprit du lieu&nbsp;: bienvenue dans le 9
+            <sup>e</sup> arrondissement de Lyon, à deux pas du quai Arloing.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+          {/* Image 1 — la salle complète (hauteur dominante, golden ratio 1.618) */}
+          <figure className="md:col-span-7 md:row-span-2 relative aspect-[16/10] md:aspect-auto md:min-h-[480px] rounded-xl overflow-hidden shadow-scene group">
+            <Image
+              src="/images/la-salle.webp"
+              alt="Salle d'Acte 2 Théâtre vue depuis le balcon : sièges rouges en velours et scène équipée de projecteurs et d'une échelle, Lyon 9 Vaise"
+              fill
+              sizes="(min-width:768px) 60vw, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <figcaption className="absolute bottom-0 inset-x-0 p-4 md:p-6 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
+              <strong className="font-display text-base">La salle</strong>{" "}
+              · 100 places assises, configuration cabaret
+            </figcaption>
+          </figure>
+
+          {/* Image 2 — banderole sur scène */}
+          <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
+            <Image
+              src="/images/scene-banderole.webp"
+              alt="Scène d'Acte 2 Théâtre avec sa grande banderole jaune « Acte 2 Théâtre — Happy Culture » et ses chaises en bois rouge avant un spectacle"
+              fill
+              sizes="(min-width:768px) 40vw, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
+              <strong className="font-display text-base">La scène</strong>{" "}
+              · enseigne <em>Happy Culture</em>
+            </figcaption>
+          </figure>
+
+          {/* Image 3 — vue depuis le bar */}
+          <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
+            <Image
+              src="/images/scene-vue-bar.webp"
+              alt="Façade intérieure d'Acte 2 Théâtre vue depuis l'espace bar, avec la banderole jaune Happy Culture et la scène en arrière-plan"
+              fill
+              sizes="(min-width:768px) 40vw, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
+              <strong className="font-display text-base">L&apos;espace bar</strong>{" "}
+              · accueil avant et après les spectacles
+            </figcaption>
+          </figure>
+
+          {/* Image 4 — sièges rouges plein cadre */}
+          <figure className="md:col-span-6 relative aspect-[16/10] rounded-xl overflow-hidden shadow-scene group">
+            <Image
+              src="/images/sieges-rouges.webp"
+              alt="Rangées de sièges en velours rouge dans la salle d'Acte 2 Théâtre, configuration cabaret intimiste de 100 places à Lyon"
+              fill
+              sizes="(min-width:768px) 50vw, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
+              <strong className="font-display text-base">Les fauteuils</strong>{" "}
+              · velours rouge, ambiance feutrée
+            </figcaption>
+          </figure>
+
+          {/* Image 5 — bandeau identité (graffiti acte 2 + abeille jaune) */}
+          <figure className="md:col-span-6 relative aspect-[16/10] rounded-xl overflow-hidden shadow-scene group">
+            <Image
+              src="/images/titre-bandeau.webp"
+              alt="Identité visuelle d'Acte 2 Théâtre : graffiti street-art « Acte 2 », abeille jaune emblématique « Happy Culture » et intérieur de la salle aux sièges rouges"
+              fill
+              sizes="(min-width:768px) 50vw, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-nuit-950/80 via-nuit-950/30 to-transparent text-craie-100 text-sm">
+              <strong className="font-display text-base">L&apos;identité</strong>{" "}
+              · graffiti, abeille jaune et velours rouge
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       {/* ──────────────── COMMENT VENIR (SEO local + accessibilité) ──────────────── */}
       <section
         aria-labelledby="acces-title"
