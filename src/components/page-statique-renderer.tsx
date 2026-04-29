@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { sanityFetch } from "@/lib/sanity/client";
 import { PAGE_STATIQUE_QUERY } from "@/lib/sanity/queries";
@@ -10,16 +9,31 @@ interface Props {
   slug: string;
 }
 
+/**
+ * Récupère un document `pageStatique` Sanity et le rend.
+ *
+ * Comportement résilient : si le document n'existe pas dans le CMS
+ * (slug inconnu) ou si Sanity est indisponible, on retourne `null`
+ * plutôt que de lever un 404. Les pages appelantes (contact, soutenir,
+ * location-salle…) embarquent un `SeoBody` de secours qui assure le
+ * contenu minimal — l'utilisateur ne tombe jamais sur un 404 si la
+ * page route existe côté Next.
+ */
 export async function renderPageStatique({ slug }: Props) {
-  const page = await sanityFetch<PageStatique | null>({
-    query: PAGE_STATIQUE_QUERY,
-    params: { slug },
-    tags: [`pageStatique:${slug}`, "pageStatique"],
-  });
-
-  if (!page) {
-    notFound();
+  let page: PageStatique | null = null;
+  try {
+    page = await sanityFetch<PageStatique | null>({
+      query: PAGE_STATIQUE_QUERY,
+      params: { slug },
+      tags: [`pageStatique:${slug}`, "pageStatique"],
+    });
+  } catch (err) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(`[pageStatique:${slug}] Sanity indisponible :`, err);
+    }
   }
+
+  if (!page) return null;
 
   return (
     <article>
@@ -47,14 +61,18 @@ export async function renderPageStatique({ slug }: Props) {
 }
 
 export async function pageStatiqueMetadata({ slug }: Props) {
-  const page = await sanityFetch<PageStatique | null>({
-    query: PAGE_STATIQUE_QUERY,
-    params: { slug },
-    tags: [`pageStatique:${slug}`],
-  });
-  if (!page) return {};
-  return {
-    title: page.seoTitre || page.titre,
-    description: page.seoDescription,
-  };
+  try {
+    const page = await sanityFetch<PageStatique | null>({
+      query: PAGE_STATIQUE_QUERY,
+      params: { slug },
+      tags: [`pageStatique:${slug}`],
+    });
+    if (!page) return {};
+    return {
+      title: page.seoTitre || page.titre,
+      description: page.seoDescription,
+    };
+  } catch {
+    return {};
+  }
 }
