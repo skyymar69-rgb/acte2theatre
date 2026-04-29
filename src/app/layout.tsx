@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://acte2theatre.vercel.app"
   ),
   title: {
-    default: "L'Acte 2 — Happy Culture · Lyon",
-    template: "%s · L'Acte 2",
+    default: "Acte 2 Théâtre — Happy Culture · Lyon",
+    template: "%s · Acte 2 Théâtre",
   },
   description:
-    "L'Acte 2, théâtre de proximité à Lyon 9 (Vaise). Spectacles jeune public, théâtre adulte, séances scolaires, ateliers et location de salle. Saison 2025-2026 — billetterie en ligne.",
-  applicationName: "L'Acte 2",
+    "Acte 2 Théâtre, théâtre de proximité à Lyon 9 (Vaise). Spectacles jeune public, théâtre adulte, séances scolaires, ateliers et location de salle. Saison 2025-2026 — billetterie en ligne.",
+  applicationName: "Acte 2 Théâtre",
   keywords: [
     "théâtre Lyon",
-    "L'Acte 2",
+    "Acte 2 Théâtre",
     "spectacle jeune public Lyon",
     "théâtre Vaise",
     "stage théâtre Lyon",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     "salle de spectacle Lyon",
     "location salle Lyon 9",
   ],
-  authors: [{ name: "L'Acte 2" }],
-  creator: "L'Acte 2",
-  publisher: "L'Acte 2",
+  authors: [{ name: "Acte 2 Théâtre" }],
+  creator: "Acte 2 Théâtre",
+  publisher: "Acte 2 Théâtre",
   formatDetection: {
     telephone: true,
     email: true,
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "L'Acte 2 — Happy Culture",
-    title: "L'Acte 2 — Happy Culture · Lyon",
+    siteName: "Acte 2 Théâtre — Happy Culture",
+    title: "Acte 2 Théâtre — Happy Culture · Lyon",
     description:
       "Théâtre de proximité à Lyon 9 (Vaise) — programmation jeune public, théâtre adulte, ateliers, location de salle. Saison 2025-2026.",
     images: [
@@ -74,13 +74,13 @@ export const metadata: Metadata = {
         url: "/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "L'Acte 2 — Happy Culture · Théâtre à Lyon 9 Vaise",
+        alt: "Acte 2 Théâtre — Happy Culture · Théâtre à Lyon 9 Vaise",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "L'Acte 2 — Happy Culture · Lyon",
+    title: "Acte 2 Théâtre — Happy Culture · Lyon",
     description:
       "Théâtre indépendant à Lyon 9 — saison 2025-2026, ateliers, location de salle.",
     images: ["/og-default.jpg"],
@@ -135,10 +135,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const parametres = await sanityFetch<Parametres | null>({
-    query: PARAMETRES_QUERY,
-    tags: ["parametres"],
-  });
+  // Le layout doit rester résilient : si Sanity est indisponible (placeholder
+  // de dev, panne réseau, dataset vide), on rend tout de même la page avec un
+  // fallback `null` plutôt que de propager un 500 sur l'intégralité du site.
+  let parametres: Parametres | null = null;
+  try {
+    parametres = await sanityFetch<Parametres | null>({
+      query: PARAMETRES_QUERY,
+      tags: ["parametres"],
+    });
+  } catch (err) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[layout] Sanity indisponible — fallback parametres=null", err);
+    }
+  }
 
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://acte2theatre.vercel.app";

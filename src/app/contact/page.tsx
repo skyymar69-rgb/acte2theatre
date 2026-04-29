@@ -72,14 +72,14 @@ export default async function ContactPage() {
       </section>
 
       <SeoBody
-        kicker="Joindre L'Acte 2"
+        kicker="Joindre Acte 2 Théâtre"
         titre="Toutes les façons de nous contacter, à Lyon 9"
         accroche="Que ce soit pour réserver une place, organiser une sortie scolaire, louer la salle pour votre événement ou simplement nous dire bonjour — voici les bons interlocuteurs et les bons canaux pour gagner du temps."
         sections={[
           {
             titre: "Notre adresse postale et nos coordonnées principales",
             paragraphes: [
-              "L'Acte 2 est implanté au <strong>32 quai Arloing, 69009 Lyon</strong>, sur la rive droite de la Saône, dans le quartier <strong>Vaise</strong> (9ᵉ arrondissement). Le théâtre est ouvert au public les soirs de représentation et sur rendez-vous en journée pour les visites de salle, les démonstrations techniques et les rendez-vous professionnels. La <strong>billetterie</strong> ouvre une heure avant chaque spectacle, en même temps que l'espace bar du hall.",
+              "Acte 2 Théâtre est implanté au <strong>32 quai Arloing, 69009 Lyon</strong>, sur la rive droite de la Saône, dans le quartier <strong>Vaise</strong> (9ᵉ arrondissement). Le théâtre est ouvert au public les soirs de représentation et sur rendez-vous en journée pour les visites de salle, les démonstrations techniques et les rendez-vous professionnels. La <strong>billetterie</strong> ouvre une heure avant chaque spectacle, en même temps que l'espace bar du hall.",
               "Vous pouvez nous joindre en journée au <strong>04 78 83 21 71</strong> (administration et billetterie), tous les jours ouvrés. Pour les courriels, l'adresse <a href=\"mailto:acte2theatre@yahoo.fr\">acte2theatre@yahoo.fr</a> est notre boîte centrale : c'est là qu'arrive toute demande générale, devis, proposition de partenariat ou simple question. Pour les <strong>réservations de groupe</strong> (scolaires, CSE, associations), privilégiez <a href=\"mailto:acte2resa@yahoo.fr\">acte2resa@yahoo.fr</a> — vous obtiendrez plus rapidement un retour avec un tarif groupe et un calendrier.",
             ],
           },

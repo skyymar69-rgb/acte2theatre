@@ -83,9 +83,9 @@ export function GoogleMapEmbed() {
     <div className="aspect-[16/9] rounded-xl overflow-hidden border border-divider/15 shadow-sm">
       <iframe
         src={MAP_SRC}
-        title="Plan d'accès L'Acte 2 — 32 quai Arloing, Lyon 9"
+        title="Plan d'accès Acte 2 Théâtre — 32 quai Arloing, Lyon 9"
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer"
         allowFullScreen
         className="w-full h-full"
       />

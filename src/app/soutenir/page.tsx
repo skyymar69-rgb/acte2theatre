@@ -15,15 +15,15 @@ export default async function SoutenirPage() {
       {await renderPageStatique({ slug: "soutenir" })}
 
       <SeoBody
-        kicker="Soutenir L'Acte 2"
+        kicker="Soutenir Acte 2 Théâtre"
         titre="Pourquoi et comment soutenir un théâtre indépendant à Lyon"
-        accroche="L'Acte 2 vit grâce à son public, à ses spectateurs réguliers, à ses partenaires entreprises et à toutes les personnes qui croient qu'un théâtre de proximité est un bien commun. Voici les manières concrètes de nous donner un coup de pouce — et ce que cela permet."
+        accroche="Acte 2 Théâtre vit grâce à son public, à ses spectateurs réguliers, à ses partenaires entreprises et à toutes les personnes qui croient qu'un théâtre de proximité est un bien commun. Voici les manières concrètes de nous donner un coup de pouce — et ce que cela permet."
         sections={[
           {
             titre: "Un théâtre indépendant, financé par celles et ceux qui le fréquentent",
             paragraphes: [
-              "L'Acte 2 est une <strong>structure indépendante</strong>, exploitée par une SARL familiale, sans subvention de fonctionnement régulière. Cela signifie que <strong>chaque place vendue, chaque atelier, chaque location de salle, chaque don</strong> contribue directement au maintien d'une saison riche, à des cachets corrects pour les compagnies invitées, à l'entretien de la salle et à une politique tarifaire accessible (places adulte à 13 €, enfant à 12 €). C'est un modèle économique fragile mais sain : il oblige à rester proche du public et à proposer une programmation qui a du sens.",
-              "Soutenir L'Acte 2 ne consiste donc pas à « payer un supplément » — c'est <strong>participer au financement direct d'un acteur culturel de quartier</strong>, dans un 9ᵉ arrondissement où les espaces culturels indépendants se font rares. Chaque geste compte, qu'il soit grand ou petit, financier ou non.",
+              "Acte 2 Théâtre est une <strong>structure indépendante</strong>, exploitée par une SARL familiale, sans subvention de fonctionnement régulière. Cela signifie que <strong>chaque place vendue, chaque atelier, chaque location de salle, chaque don</strong> contribue directement au maintien d'une saison riche, à des cachets corrects pour les compagnies invitées, à l'entretien de la salle et à une politique tarifaire accessible (places adulte à 13 €, enfant à 12 €). C'est un modèle économique fragile mais sain : il oblige à rester proche du public et à proposer une programmation qui a du sens.",
+              "Soutenir Acte 2 Théâtre ne consiste donc pas à « payer un supplément » — c'est <strong>participer au financement direct d'un acteur culturel de quartier</strong>, dans un 9ᵉ arrondissement où les espaces culturels indépendants se font rares. Chaque geste compte, qu'il soit grand ou petit, financier ou non.",
             ],
           },
           {
@@ -36,7 +36,7 @@ export default async function SoutenirPage() {
           {
             titre: "Privatiser la salle pour vos événements",
             paragraphes: [
-              "Pour les <strong>entreprises, CSE, associations et collectivités</strong>, organiser un événement à L'Acte 2 (séminaire, arbre de Noël, lancement, soirée de cohésion, AG) est l'un des moyens les plus efficaces de nous soutenir. Les revenus de location professionnelle représentent une part significative de notre équilibre économique et permettent de programmer des spectacles à petit prix le reste du temps. Vous y gagnez un cadre original et marquant pour vos invités, nous y gagnons les moyens de continuer à programmer une saison riche : c'est gagnant-gagnant.",
+              "Pour les <strong>entreprises, CSE, associations et collectivités</strong>, organiser un événement à Acte 2 Théâtre (séminaire, arbre de Noël, lancement, soirée de cohésion, AG) est l'un des moyens les plus efficaces de nous soutenir. Les revenus de location professionnelle représentent une part significative de notre équilibre économique et permettent de programmer des spectacles à petit prix le reste du temps. Vous y gagnez un cadre original et marquant pour vos invités, nous y gagnons les moyens de continuer à programmer une saison riche : c'est gagnant-gagnant.",
               "Toutes les informations sur la page <a href=\"/entreprise\">espace entreprise</a> et la page <a href=\"/location-salle\">location de salle</a>, avec une demande de devis traitée sous 24 à 48 heures ouvrées.",
             ],
           },

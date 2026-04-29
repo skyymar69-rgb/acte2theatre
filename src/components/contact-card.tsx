@@ -19,8 +19,8 @@ const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/TwqZxYrurq5qRTXr5";
 const GOOGLE_REVIEW_URL = "https://share.google/80TM7ToTYjJf2phd6";
 
 const VCARD_DATA = {
-  name: "L'Acte 2",
-  org: "L'Acte 2",
+  name: "Acte 2 Théâtre",
+  org: "Acte 2 Théâtre",
   title: "Théâtre de proximité — Lyon 9",
   tel: "+33478832171",
   email: "acte2resa@yahoo.fr",
@@ -145,7 +145,7 @@ export function ContactCard() {
                     id="contact-card-title"
                     className="font-display text-2xl md:text-3xl"
                   >
-                    L&rsquo;Acte <span className="text-or-500">2</span>
+                    Acte <span className="text-or-500">2</span> Théâtre
                   </h2>
                   <p className="text-sm text-ink-muted mt-1">
                     32 quai Arloing — 69009 Lyon · 04 78 83 21 71

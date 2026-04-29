@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { ContactCard } from "./contact-card";
@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 ];
 
 /**
- * Wordmark L'Acte 2 — Happy Culture
+ * Wordmark Acte 2 Théâtre — Happy Culture
  * - Playfair Display, "2" en or rideau, "Happy Culture" en sous-titre
  * - S'adapte automatiquement au thème (couleurs sémantiques)
  */
@@ -24,10 +24,10 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      aria-label="L'Acte 2 Happy Culture — accueil"
+      aria-label="Acte 2 Théâtre Happy Culture — accueil"
       className="group flex items-center gap-3 leading-none -my-1"
     >
-      {/* Logo officiel Acte 2 — affiché sur fond noir circulaire pour intégration thème */}
+      {/* Logo officiel Acte 2 Théâtre — affiché sur fond noir circulaire pour intégration thème */}
       <span className="hidden sm:inline-flex relative w-11 h-11 rounded-full bg-nuit-950 ring-1 ring-or-500/30 overflow-hidden flex-shrink-0">
         <Image
           src="/logos/logo-acte2.webp"
@@ -41,10 +41,11 @@ function Wordmark() {
       </span>
       <span className="flex flex-col items-start">
         <span className="font-display text-[1.45rem] md:text-[1.55rem] font-semibold tracking-tight">
-          L&rsquo;Acte&nbsp;
+          Acte&nbsp;
           <span className="text-or-500 group-hover:text-or-400 transition-colors">
             2
           </span>
+          &nbsp;Théâtre
         </span>
         <span className="text-[0.62rem] uppercase tracking-[0.32em] text-ink-muted mt-0.5">
           Happy&nbsp;Culture
@@ -58,17 +59,42 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const openBtnRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+      // Focus trap : Tab garde le focus à l'intérieur du menu mobile
+      if (e.key === "Tab" && menuRef.current) {
+        const focusables = menuRef.current.querySelectorAll<HTMLElement>(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    // Focus initial sur le bouton de fermeture
+    closeBtnRef.current?.focus();
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      // Restitution du focus au bouton qui a ouvert le menu
+      openBtnRef.current?.focus();
     };
   }, [open]);
 
@@ -122,6 +148,7 @@ export function SiteHeader() {
             <ThemeToggle />
 
             <button
+              ref={openBtnRef}
               type="button"
               onClick={() => setOpen(true)}
               className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-divider/40 hover:border-or-500/60 text-ink"
@@ -152,10 +179,14 @@ export function SiteHeader() {
 
       {/* Mobile menu overlay */}
       <div
+        ref={menuRef}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation mobile"
+        // `inert` retire le menu du focus order et de la pile A11y quand fermé
+        // (cast `as any` car la prop n'est pas encore typée par React 19 sur tous les setups)
+        {...({ inert: open ? undefined : "" } as Record<string, unknown>)}
         className={`fixed inset-0 z-50 bg-nuit-950 text-craie-100 md:hidden transition-opacity duration-200 ${
           open
             ? "opacity-100 pointer-events-auto"
@@ -167,9 +198,10 @@ export function SiteHeader() {
             href="/"
             className="font-display text-xl font-semibold tracking-tight text-craie-100"
           >
-            L&rsquo;Acte <span className="text-or-500">2</span>
+            Acte <span className="text-or-500">2</span> Théâtre
           </Link>
           <button
+            ref={closeBtnRef}
             type="button"
             onClick={() => setOpen(false)}
             className="p-2 -mr-2 text-craie-100 hover:text-or-400 transition-colors"

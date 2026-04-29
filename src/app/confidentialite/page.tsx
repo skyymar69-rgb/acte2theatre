@@ -2,7 +2,7 @@ import { LegalPage, legalMetadata } from "@/components/legal-page";
 
 export const metadata = legalMetadata(
   "Politique de confidentialité",
-  "Politique de protection des données personnelles de L'Acte 2. Conforme RGPD : finalités, bases légales, durées, droits."
+  "Politique de protection des données personnelles de Acte 2 Théâtre. Conforme RGPD : finalités, bases légales, durées, droits."
 );
 
 export const revalidate = 86400;

@@ -1,4 +1,4 @@
-# Notice technique — Site L'Acte 2
+# Notice technique — Site Acte 2 Théâtre
 
 Document à destination de l'équipe technique (intégrateurs, mainteneurs,
 auditeurs RGPD/RGAA, agences relais). Tient lieu de cahier des charges
@@ -187,10 +187,28 @@ D:\Acte2\
 | `SANITY_REVALIDATE_SECRET` | Signature HMAC du webhook | Vercel + .env.local + sanity.io/manage |
 | `SANITY_API_WRITE_TOKEN` | Token Editor pour scripts seed | .env.local **uniquement** |
 | `NEXT_PUBLIC_SITE_URL` | URL canonique (`https://acte2theatre.vercel.app`) | Vercel + .env.local |
+| `STUDIO_BASIC_AUTH_USER` | Identifiant Basic Auth Studio (`Acte2Studio`) | Vercel + .env.local |
+| `STUDIO_BASIC_AUTH_PASS` | Mot de passe Basic Auth Studio | Vercel + .env.local |
+| `RESEND_API_KEY` | Clef API Resend (envoi mails formulaire contact) | Vercel + .env.local |
+| `CONTACT_TO_EMAIL` | Adresse destinataire des messages contact | Vercel + .env.local |
+| `CONTACT_FROM_EMAIL` | Adresse expéditeur (domaine vérifié Resend) | Vercel + .env.local |
 
 ⚠️ **Le `SANITY_API_WRITE_TOKEN` ne doit JAMAIS être déployé sur Vercel** —
 il sert uniquement aux scripts de seed locaux. Il peut être révoqué
 sur sanity.io/manage une fois la migration finalisée.
+
+⚠️ **`STUDIO_BASIC_AUTH_PASS` doit être défini en prod** — sinon le
+middleware désactive la protection (utile en CI/preview, dangereux
+en prod). Mot de passe initial fourni au gérant : à renouveler tous
+les 6 mois ou en cas de départ d'un administrateur.
+
+### Rotation du mot de passe Studio
+
+1. Aller sur https://vercel.com → projet → Settings → Environment Variables
+2. Modifier `STUDIO_BASIC_AUTH_PASS` (Production + Preview + Development)
+3. Re-déployer (ou attendre le prochain build)
+4. Communiquer le nouveau mot de passe aux administrateurs concernés
+5. Mettre à jour le **Guide administrateur** (section 1) si transmis aux utilisateurs finaux
 
 ---
 
@@ -231,7 +249,7 @@ sur sanity.io/manage une fois la migration finalisée.
 
 | Critère | État | Détail |
 |---|---|---|
-| Balise `<title>` unique par page | ✅ | Pattern `{Titre} — L'Acte 2` ou variante locale |
+| Balise `<title>` unique par page | ✅ | Pattern `{Titre} — Acte 2 Théâtre` ou variante locale |
 | Meta `description` unique | ✅ | 150-160 caractères, ville + mots-clés naturels |
 | `canonical` correctement défini | ✅ | Tous les types de pages |
 | Hiérarchie `<h1>` à `<h4>` | ✅ | Un seul `<h1>` par page, pas de saut de niveau |
@@ -366,19 +384,31 @@ recommandée pour les obligations de transparence vis-à-vis du public.
 | Mesure | État |
 |---|---|
 | HTTPS forcé (HSTS preload 1 an) | ✅ |
-| Content-Security-Policy stricte | ✅ default-src self, frame-src whitelist Mapado + Maps |
+| Content-Security-Policy stricte (publique : sans `unsafe-eval`) | ✅ Profil dédié pour `/studio` |
 | X-Content-Type-Options nosniff | ✅ |
 | X-Frame-Options SAMEORIGIN | ✅ |
+| Cross-Origin-Opener-Policy same-origin | ✅ Mitigation Spectre + window.opener |
+| Cross-Origin-Resource-Policy same-site | ✅ Hors `/studio` (assets cross-origin Sanity) |
 | Referrer-Policy strict-origin-when-cross-origin | ✅ |
-| Permissions-Policy restrictive | ✅ |
+| Permissions-Policy restrictive (camera/mic/geo/payment/usb… off) | ✅ |
+| `frame-src` whitelist (Maps + Mapado uniquement) | ✅ |
+| Iframe Maps `referrerPolicy="no-referrer"` | ✅ |
+| `upgrade-insecure-requests` | ✅ |
 | `/.well-known/security.txt` (RFC 9116) | ✅ |
 | Webhook Sanity signé HMAC | ✅ |
+| **Studio /studio derrière HTTP Basic Auth (middleware Edge)** | ✅ Identifiants `STUDIO_BASIC_AUTH_*` |
+| Studio derrière auth Sanity (Google/GitHub/email) | ✅ Deuxième barrière |
+| `noindex, nofollow, noarchive` sur `/studio/*` | ✅ |
 | Honeypot anti-bot sur formulaire contact | ✅ |
-| Rate limit formulaire (1 req / 30s / IP) | ✅ |
+| Rate limit formulaire (1 req / 30s / IP — mémoire) | ⚠️ Multi-instance Vercel : à migrer vers Upstash KV à fort trafic |
+| Limite taille body formulaire (50 ko) | ✅ |
+| Comparaison à temps constant (Basic Auth) | ✅ Anti-timing attack |
 | Pas de stockage des données du formulaire | ✅ Logs serveur uniquement |
-| Studio derrière auth Sanity (Google/GitHub/email) | ✅ |
 | Tokens Sanity gestion stricte (Editor seulement pour scripts seed) | ✅ |
 | Cookies non strictement nécessaires sous consentement | ✅ Bandeau granulaire CNIL 2020-091 |
+| Frontières d'erreur (`error.tsx` + `global-error.tsx`) | ✅ |
+| Layout résilient (try/catch sur fetch Sanity) | ✅ Pas de 500 global si CMS down |
+| Vulnérabilités npm | ⚠️ 22 moderate (toutes upstream Sanity `@sanity/uuid` < 1.0) — 0 high/critical |
 
 ---
 
@@ -489,7 +519,7 @@ Le site est sur `http://localhost:3000`, le Studio sur
 ### Court terme (1-2 semaines)
 
 - [ ] Auditer la fiche Google Business Profile et la mettre à jour
-- [ ] Créer une entrée Wikidata L'Acte 2 (renforcement entité IA)
+- [ ] Créer une entrée Wikidata Acte 2 Théâtre (renforcement entité IA)
 - [ ] Brancher Resend ou Formspree sur l'API `/api/contact` pour
       l'envoi d'email réel (actuellement logs serveur seulement)
 - [ ] Ajouter un Google Tag Manager / Plausible si besoin d'analytics

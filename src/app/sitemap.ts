@@ -1,14 +1,27 @@
 import type { MetadataRoute } from "next";
-import { client } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 import { SPECTACLES_SLUGS_QUERY } from "@/lib/sanity/queries";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://acte2theatre.vercel.app";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const slugs = await client.fetch<string[]>(SPECTACLES_SLUGS_QUERY);
+// Revalidé via le webhook Sanity : tag "spectacle"
+export const revalidate = 3600;
 
-  // Pages principales — fortement priorisées pour le SEO
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Tolère une indisponibilité Sanity : on rend au moins les routes fixes.
+  let slugs: string[] = [];
+  try {
+    slugs = await sanityFetch<string[]>({
+      query: SPECTACLES_SLUGS_QUERY,
+      tags: ["spectacle"],
+    });
+  } catch (err) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[sitemap] Sanity indisponible, sitemap partiel.", err);
+    }
+  }
+
   const mainRoutes: MetadataRoute.Sitemap = [
     { path: "", priority: 1.0, freq: "weekly" as const },
     { path: "/spectacles", priority: 0.9, freq: "weekly" as const },
@@ -25,7 +38,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }));
 
-  // Spectacles — priorité dégradée selon l'imminence des dates
   const spectacleRoutes: MetadataRoute.Sitemap = slugs.map((slug) => ({
     url: `${BASE_URL}/spectacles/${slug}`,
     lastModified: new Date(),
@@ -33,7 +45,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Pages légales — indexables mais faible priorité
   const legalRoutes: MetadataRoute.Sitemap = [
     "/mentions-legales",
     "/cgu",

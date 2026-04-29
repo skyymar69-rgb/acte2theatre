@@ -2,7 +2,7 @@ import { LegalPage, legalMetadata } from "@/components/legal-page";
 
 export const metadata = legalMetadata(
   "Conditions Générales de Vente",
-  "CGV de L'Acte 2 — billetterie spectacles, location de salle, ateliers. Tarifs, paiement, droit de rétractation, médiation."
+  "CGV de Acte 2 Théâtre — billetterie spectacles, location de salle, ateliers. Tarifs, paiement, droit de rétractation, médiation."
 );
 
 export const revalidate = 86400;

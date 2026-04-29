@@ -89,8 +89,33 @@ git push -u origin main
 | `NEXT_PUBLIC_SANITY_API_VERSION` | `2024-12-01` |
 | `SANITY_REVALIDATE_SECRET` | la chaîne du webhook |
 | `NEXT_PUBLIC_SITE_URL` | URL prod (ex : `https://www.acte2theatre.fr`) |
+| `STUDIO_BASIC_AUTH_USER` | Identifiant unique partagé pour /studio (ex : `Acte2Studio`) |
+| `STUDIO_BASIC_AUTH_PASS` | Mot de passe Basic Auth /studio (à faire tourner régulièrement) |
+| `RESEND_API_KEY` *(optionnel)* | Clef Resend pour relayer le formulaire de contact par email |
+| `CONTACT_TO_EMAIL` *(optionnel)* | Adresse de réception (ex : `acte2theatre@yahoo.fr`) |
+| `CONTACT_FROM_EMAIL` *(optionnel)* | Expéditeur Resend (domaine vérifié, ex : `site@acte2theatre.fr`) |
+
+> 🔐 **`STUDIO_BASIC_AUTH_*` est obligatoire en prod** : sans ces deux
+> variables, le middleware désactive la protection. Voir
+> `docs/NOTICE-TECHNIQUE.md` § 7 pour la procédure de rotation.
 
 Vercel déploie automatiquement à chaque push. Chaque PR génère une preview URL.
+
+---
+
+## 🔐 Accès au back-office /studio
+
+Le Studio Sanity est protégé par **deux barrières successives** :
+
+1. **HTTP Basic Auth** (popup navigateur) gérée par
+   [src/middleware.ts](src/middleware.ts).
+   Identifiant : `Acte2Studio` — mot de passe **communiqué séparément
+   au gérant** (variables `STUDIO_BASIC_AUTH_USER` /
+   `STUDIO_BASIC_AUTH_PASS` dans Vercel).
+2. **Auth Sanity native** (Google / GitHub / email) gérée par Sanity Cloud.
+
+Voir le [Guide administrateur](docs/GUIDE-ADMINISTRATEUR.md) § 1 pour
+la procédure de connexion utilisateur final.
 
 ---
 

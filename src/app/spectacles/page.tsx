@@ -17,12 +17,12 @@ const CATEGORY_METAS: Record<string, { title: string; description: string }> = {
   "jeune-public": {
     title: "Spectacles jeune public",
     description:
-      "Spectacles jeune public à Lyon — dès 18 mois, ateliers à la sortie, tarifs adultes 13€ enfants 12€. Saison 2025-2026 de L'Acte 2.",
+      "Spectacles jeune public à Lyon — dès 18 mois, ateliers à la sortie, tarifs adultes 13€ enfants 12€. Saison 2025-2026 de Acte 2 Théâtre.",
   },
   theatre: {
     title: "Théâtre adulte",
     description:
-      "Théâtre contemporain et classique à Lyon 9 Vaise — saison 2025-2026 de L'Acte 2. Compagnies invitées, créations, magie. Réservation en ligne.",
+      "Théâtre contemporain et classique à Lyon 9 Vaise — saison 2025-2026 de Acte 2 Théâtre. Compagnies invitées, créations, magie. Réservation en ligne.",
   },
   scolaire: {
     title: "Séances scolaires",
@@ -42,7 +42,7 @@ export async function generateMetadata({
     title: meta?.title ?? "Programmation 2025-2026",
     description:
       meta?.description ??
-      "La programmation de L'Acte 2 Lyon : spectacles jeune public, théâtre adulte, séances scolaires, magie. Saison 2025-2026 — réservation en ligne.",
+      "La programmation de Acte 2 Théâtre Lyon : spectacles jeune public, théâtre adulte, séances scolaires, magie. Saison 2025-2026 — réservation en ligne.",
     alternates: {
       canonical: categorie ? `/spectacles?categorie=${categorie}` : "/spectacles",
     },
@@ -177,7 +177,7 @@ export default async function SpectaclesPage({
       <SeoBody
         kicker="Saison 2025-2026"
         titre="Une programmation de théâtre indépendant à Lyon"
-        accroche="À L'Acte 2, la saison s'invente comme un voyage : on commence dès 18 mois avec les tout-petits, on traverse les âges du jeune public, et on prolonge la nuit avec du théâtre contemporain ou classique pour adultes. Trente spectacles environ, des compagnies invitées de toute la France, et la promesse d'une vraie proximité avec les artistes."
+        accroche="À Acte 2 Théâtre, la saison s'invente comme un voyage : on commence dès 18 mois avec les tout-petits, on traverse les âges du jeune public, et on prolonge la nuit avec du théâtre contemporain ou classique pour adultes. Trente spectacles environ, des compagnies invitées de toute la France, et la promesse d'une vraie proximité avec les artistes."
         sections={[
           {
             titre: "Un théâtre éclectique, fidèle à la philosophie Happy Culture",
@@ -204,7 +204,7 @@ export default async function SpectaclesPage({
           {
             titre: "Séances scolaires — accueillir les classes au théâtre",
             paragraphes: [
-              "L'Acte 2 travaille étroitement avec les enseignants des écoles, collèges et lycées de Lyon et du Grand Lyon. Nous organisons des <strong>séances scolaires</strong> sur demande, avec une programmation adaptée aux niveaux : <em>Sacré Molière !</em> (Cie 2 Trois Bricoles) pour le cycle 3 et le collège, <em>Monte Cristo ou la Loi du Talion</em> (Cie Histoire de Voir) à partir de 12 ans.",
+              "Acte 2 Théâtre travaille étroitement avec les enseignants des écoles, collèges et lycées de Lyon et du Grand Lyon. Nous organisons des <strong>séances scolaires</strong> sur demande, avec une programmation adaptée aux niveaux : <em>Sacré Molière !</em> (Cie 2 Trois Bricoles) pour le cycle 3 et le collège, <em>Monte Cristo ou la Loi du Talion</em> (Cie Histoire de Voir) à partir de 12 ans.",
               "Chaque représentation scolaire peut être enrichie d'un dossier pédagogique préparé par la compagnie, ainsi que d'une rencontre avec les comédiens à l'issue du spectacle. Nous travaillons à un tarif groupe (à partir de 6 € par élève selon l'effectif) qui permet de boucler la facturation simplement avec votre coopérative ou votre OGEC. Pour préparer une sortie : <a href=\"mailto:acte2resa@yahoo.fr\">acte2resa@yahoo.fr</a> ou 04 78 83 21 71.",
             ],
           },

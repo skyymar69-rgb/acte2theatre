@@ -8,25 +8,45 @@ import {
 } from "@/lib/sanity/queries";
 import type { SpectaclePreview, Atelier } from "@/lib/sanity/types";
 import { SpectacleCard } from "@/components/spectacle-card";
-import { ArrowRight, Ticket, Users, Heart, Bus, TramFront, ParkingCircle } from "lucide-react";
+import { ArrowRight, Ticket, Users, Heart, Bus, TramFront, ParkingCircle, ExternalLink } from "lucide-react";
 import { SeoBody } from "@/components/seo-body";
 
 export const revalidate = 3600;
 
+async function safeFetch<T>(promise: Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await promise;
+  } catch (err) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[home] Sanity fetch a échoué, fallback :", err);
+    }
+    return fallback;
+  }
+}
+
 export default async function HomePage() {
   const [vedettes, aVenir, ateliers] = await Promise.all([
-    sanityFetch<SpectaclePreview[]>({
-      query: SPECTACLES_VEDETTE_QUERY,
-      tags: ["spectacle"],
-    }),
-    sanityFetch<SpectaclePreview[]>({
-      query: SPECTACLES_A_VENIR_QUERY,
-      tags: ["spectacle"],
-    }),
-    sanityFetch<Atelier[]>({
-      query: ATELIERS_QUERY,
-      tags: ["atelier"],
-    }),
+    safeFetch(
+      sanityFetch<SpectaclePreview[]>({
+        query: SPECTACLES_VEDETTE_QUERY,
+        tags: ["spectacle"],
+      }),
+      [] as SpectaclePreview[]
+    ),
+    safeFetch(
+      sanityFetch<SpectaclePreview[]>({
+        query: SPECTACLES_A_VENIR_QUERY,
+        tags: ["spectacle"],
+      }),
+      [] as SpectaclePreview[]
+    ),
+    safeFetch(
+      sanityFetch<Atelier[]>({
+        query: ATELIERS_QUERY,
+        tags: ["atelier"],
+      }),
+      [] as Atelier[]
+    ),
   ]);
 
   return (
@@ -36,7 +56,7 @@ export default async function HomePage() {
         className="relative isolate overflow-hidden bg-nuit-950 text-craie-100 bg-grain"
         aria-labelledby="hero-title"
       >
-        {/* Image de fond — vue panoramique du hall Acte 2 (purement décorative) */}
+        {/* Image de fond — vue panoramique du hall Acte 2 Théâtre (purement décorative) */}
         <Image
           src="/images/hero.webp"
           alt=""
@@ -60,7 +80,7 @@ export default async function HomePage() {
         <div className="relative container max-w-5xl py-20 md:py-32 lg:py-40">
           <p className="text-or-400 font-medium uppercase tracking-[0.3em] text-xs md:text-sm mb-5">
             <span className="font-display italic normal-case tracking-normal text-base text-or-300/90">
-              L&rsquo;Acte 2 · Happy Culture
+              Acte 2 Théâtre · Happy Culture
             </span>
             <span className="ml-2">· Lyon 9 — Vaise</span>
           </p>
@@ -125,6 +145,7 @@ export default async function HomePage() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
                 Mapado
+                <ExternalLink className="w-3 h-3 opacity-70" aria-hidden="true" />
                 <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
               </a>
             </li>
@@ -137,6 +158,7 @@ export default async function HomePage() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
                 BilletReduc
+                <ExternalLink className="w-3 h-3 opacity-70" aria-hidden="true" />
                 <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
               </a>
             </li>
@@ -149,6 +171,7 @@ export default async function HomePage() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-or-500" aria-hidden="true" />
                 Ticketac
+                <ExternalLink className="w-3 h-3 opacity-70" aria-hidden="true" />
                 <span className="sr-only"> (ouvre dans un nouvel onglet)</span>
               </a>
             </li>
@@ -213,7 +236,7 @@ export default async function HomePage() {
               saison, et particulièrement pendant les vacances scolaires.
             </p>
             <p>
-              L'Acte 2 est aussi un lieu{" "}
+              Acte 2 Théâtre est aussi un lieu{" "}
               <strong>accessible aux compagnies émergentes</strong> — un espace
               ouvert à l&apos;expérience, à la créativité et au pas-de-côté. On
               y croise des premières créations, des cartes blanches, des paris
@@ -263,7 +286,7 @@ export default async function HomePage() {
       >
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <p className="md:col-span-8 text-lg leading-relaxed text-ink/90 text-pretty">
-            <strong>L'Acte 2</strong> est un théâtre de proximité
+            <strong>Acte 2 Théâtre</strong> est un théâtre de proximité
             indépendant ouvert depuis <time dateTime="2007-02-06">2007</time>{" "}
             au 32 quai Arloing, dans le 9<sup>e</sup> arrondissement de Lyon
             (quartier de Vaise). Sa salle intimiste de{" "}
@@ -359,7 +382,7 @@ export default async function HomePage() {
               humaine
             </h2>
             <p className="text-craie-100/85 leading-relaxed mb-6 text-pretty">
-              Depuis 2007, L'Acte 2 fait dialoguer compagnies invitées,
+              Depuis 2007, Acte 2 Théâtre fait dialoguer compagnies invitées,
               créations maison et publics fidèles. 100 fauteuils rouges, une
               scène intime, et l&apos;envie chevillée au corps de partager une
               culture qui rend heureux.
@@ -372,7 +395,7 @@ export default async function HomePage() {
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene">
             <Image
               src="/images/sieges-rouges.webp"
-              alt="Rangées de sièges en velours rouge dans la salle de L'Acte 2, Lyon 9 Vaise"
+              alt="Rangées de sièges en velours rouge dans la salle de Acte 2 Théâtre, Lyon 9 Vaise"
               fill
               loading="lazy"
               sizes="(min-width:768px) 50vw, 100vw"
@@ -494,7 +517,7 @@ export default async function HomePage() {
           <figure className="md:col-span-7 md:row-span-2 relative aspect-[16/10] md:aspect-auto md:min-h-[480px] rounded-xl overflow-hidden shadow-scene group">
             <Image
               src="/images/la-salle.webp"
-              alt="Salle de L'Acte 2 vue depuis le balcon : sièges rouges en velours et scène équipée de projecteurs et d'une échelle, Lyon 9 Vaise"
+              alt="Salle de Acte 2 Théâtre vue depuis le balcon : sièges rouges en velours et scène équipée de projecteurs et d'une échelle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 60vw, 100vw"
               loading="lazy"
@@ -510,7 +533,7 @@ export default async function HomePage() {
           <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
             <Image
               src="/images/scene-banderole.webp"
-              alt="Scène de L'Acte 2 avec sa grande banderole jaune « L'Acte 2 — Happy Culture » et ses chaises en bois rouge avant un spectacle"
+              alt="Scène de Acte 2 Théâtre avec sa grande banderole jaune « Acte 2 Théâtre — Happy Culture » et ses chaises en bois rouge avant un spectacle"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
               loading="lazy"
@@ -526,7 +549,7 @@ export default async function HomePage() {
           <figure className="md:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-scene group">
             <Image
               src="/images/espace-bar.webp"
-              alt="Espace bar et accueil de L'Acte 2 — fauteuils en velours rouge, tables hautes en bois et écran lumineux, ambiance feutrée pour boire un verre avant ou après le spectacle, Lyon 9 Vaise"
+              alt="Espace bar et accueil de Acte 2 Théâtre — fauteuils en velours rouge, tables hautes en bois et écran lumineux, ambiance feutrée pour boire un verre avant ou après le spectacle, Lyon 9 Vaise"
               fill
               sizes="(min-width:768px) 40vw, 100vw"
               loading="lazy"
@@ -542,7 +565,7 @@ export default async function HomePage() {
           <figure className="md:col-span-6 relative aspect-[16/10] rounded-xl overflow-hidden shadow-scene group">
             <Image
               src="/images/sieges-rouges.webp"
-              alt="Rangées de sièges en velours rouge dans la salle de L'Acte 2, configuration cabaret intimiste de 100 places à Lyon"
+              alt="Rangées de sièges en velours rouge dans la salle de Acte 2 Théâtre, configuration cabaret intimiste de 100 places à Lyon"
               fill
               sizes="(min-width:768px) 50vw, 100vw"
               loading="lazy"
@@ -558,7 +581,7 @@ export default async function HomePage() {
           <figure className="md:col-span-6 relative aspect-[16/10] rounded-xl overflow-hidden shadow-scene group">
             <Image
               src="/images/titre-bandeau.webp"
-              alt="Identité visuelle de L'Acte 2 : graffiti street-art « Acte 2 », abeille jaune emblématique « Happy Culture » et intérieur de la salle aux sièges rouges"
+              alt="Identité visuelle de Acte 2 Théâtre : graffiti street-art « Acte 2 », abeille jaune emblématique « Happy Culture » et intérieur de la salle aux sièges rouges"
               fill
               sizes="(min-width:768px) 50vw, 100vw"
               loading="lazy"
@@ -582,7 +605,7 @@ export default async function HomePage() {
             <p className="text-rouge-600 dark:text-or-400 font-semibold uppercase tracking-[0.18em] text-xs mb-2">
               Accès &amp; informations pratiques
             </p>
-            <h2 id="acces-title">Comment venir à L'Acte 2</h2>
+            <h2 id="acces-title">Comment venir à Acte 2 Théâtre</h2>
             <p className="text-ink-muted mt-3">
               Le théâtre se situe au <strong>32 quai Arloing, 69009 Lyon</strong>,
               au cœur du quartier de Vaise — accessible facilement en transports
@@ -649,34 +672,34 @@ export default async function HomePage() {
       {/* ──────────────── BLOC SEO ──────────────── */}
       <SeoBody
         kicker="Théâtre de proximité — Lyon 9"
-        titre="L'Acte 2, une salle de théâtre indépendante au cœur de Vaise"
-        accroche="Au 32 quai Arloing, à deux pas de la gare de Vaise, L'Acte 2 fait vivre la culture autrement : programmation éclectique pour toute la famille, ateliers ouverts aux amateurs, salle privatisable pour vos événements professionnels et un esprit « Happy Culture » assumé. Bienvenue dans l'un des derniers théâtres de proximité de Lyon."
+        titre="Acte 2 Théâtre, une salle de théâtre indépendante au cœur de Vaise"
+        accroche="Au 32 quai Arloing, à deux pas de la gare de Vaise, Acte 2 Théâtre fait vivre la culture autrement : programmation éclectique pour toute la famille, ateliers ouverts aux amateurs, salle privatisable pour vos événements professionnels et un esprit « Happy Culture » assumé. Bienvenue dans l'un des derniers théâtres de proximité de Lyon."
         sections={[
           {
             titre: "Une saison pensée pour rassembler petits et grands",
             paragraphes: [
-              "La <strong>saison 2025-2026 de L'Acte 2</strong> propose une trentaine de spectacles à l'année, avec un équilibre soigneusement construit entre <strong>jeune public</strong> (dès 18 mois), <strong>théâtre adulte</strong> (créations contemporaines et grands textes), <strong>magie</strong>, <strong>seuls-en-scène</strong> et <strong>séances scolaires</strong>. Notre parti pris : programmer des compagnies engagées, souvent indépendantes, avec une exigence artistique forte mais des tarifs accessibles. Les places adulte démarrent à 13 €, les places enfant à 12 €, et plusieurs formules d'abonnement permettent de revenir plusieurs fois dans la saison sans faire exploser le budget.",
-              "Cette politique tarifaire est rendue possible par notre format : une <strong>salle de 100 places</strong> en configuration cabaret, où l'on est toujours proche de la scène, sans jamais avoir à plisser les yeux pour suivre une expression. Cette intimité est ce qui distingue L'Acte 2 des grandes salles lyonnaises : ici, le rapport entre la scène et le public est direct, presque physique.",
+              "La <strong>saison 2025-2026 de Acte 2 Théâtre</strong> propose une trentaine de spectacles à l'année, avec un équilibre soigneusement construit entre <strong>jeune public</strong> (dès 18 mois), <strong>théâtre adulte</strong> (créations contemporaines et grands textes), <strong>magie</strong>, <strong>seuls-en-scène</strong> et <strong>séances scolaires</strong>. Notre parti pris : programmer des compagnies engagées, souvent indépendantes, avec une exigence artistique forte mais des tarifs accessibles. Les places adulte démarrent à 13 €, les places enfant à 12 €, et plusieurs formules d'abonnement permettent de revenir plusieurs fois dans la saison sans faire exploser le budget.",
+              "Cette politique tarifaire est rendue possible par notre format : une <strong>salle de 100 places</strong> en configuration cabaret, où l'on est toujours proche de la scène, sans jamais avoir à plisser les yeux pour suivre une expression. Cette intimité est ce qui distingue Acte 2 Théâtre des grandes salles lyonnaises : ici, le rapport entre la scène et le public est direct, presque physique.",
             ],
           },
           {
             titre: "Du théâtre, mais pas seulement",
             paragraphes: [
-              "Au-delà de la programmation, L'Acte 2 vit toute la semaine grâce à ses <strong>ateliers</strong> : un cours de <strong>théâtre adulte</strong> hebdomadaire, animé par des comédiens professionnels, qui se conclut chaque saison par une représentation publique sur notre scène ; des <strong>stages enfants 10-14 ans</strong> pendant les vacances scolaires ; et un atelier d'<strong>énergétique chinoise</strong> pour celles et ceux qui cherchent une pratique corporelle douce et un moment de respiration dans la semaine. Tous niveaux, tous âges : le théâtre est ouvert.",
+              "Au-delà de la programmation, Acte 2 Théâtre vit toute la semaine grâce à ses <strong>ateliers</strong> : un cours de <strong>théâtre adulte</strong> hebdomadaire, animé par des comédiens professionnels, qui se conclut chaque saison par une représentation publique sur notre scène ; des <strong>stages enfants 10-14 ans</strong> pendant les vacances scolaires ; et un atelier d'<strong>énergétique chinoise</strong> pour celles et ceux qui cherchent une pratique corporelle douce et un moment de respiration dans la semaine. Tous niveaux, tous âges : le théâtre est ouvert.",
               "Nous accueillons aussi très régulièrement des <strong>écoles, crèches, centres aérés et MJC</strong> en séance dédiée — une formule pratique pour les enseignants qui veulent emmener une classe à un spectacle adapté, avec un tarif groupe et un dialogue direct avec l'équipe pour préparer la sortie.",
             ],
           },
           {
             titre: "Une salle qui se loue pour vos événements",
             paragraphes: [
-              "Le théâtre se transforme aussi régulièrement en <strong>lieu d'événement professionnel</strong>. Comités d'entreprise (CSE), arbres de Noël, séminaires, lancements produit, conférences, soirées de cohésion : la configuration cabaret de 100 places, l'<strong>espace bar intégré</strong> et la possibilité d'ajouter un régisseur professionnel font de L'Acte 2 un lieu particulièrement adapté aux soirées qui doivent informer, divertir et marquer les esprits. Les compagnies, écoles de théâtre et collectifs artistiques l'utilisent également pour des <strong>résidences</strong>, des répétitions filées et des captations vidéo.",
+              "Le théâtre se transforme aussi régulièrement en <strong>lieu d'événement professionnel</strong>. Comités d'entreprise (CSE), arbres de Noël, séminaires, lancements produit, conférences, soirées de cohésion : la configuration cabaret de 100 places, l'<strong>espace bar intégré</strong> et la possibilité d'ajouter un régisseur professionnel font de Acte 2 Théâtre un lieu particulièrement adapté aux soirées qui doivent informer, divertir et marquer les esprits. Les compagnies, écoles de théâtre et collectifs artistiques l'utilisent également pour des <strong>résidences</strong>, des répétitions filées et des captations vidéo.",
               "Plus d'informations sur la page <a href=\"/location-salle\">location de salle</a> ou directement sur la page <a href=\"/entreprise\">espace entreprise</a>, avec une demande de devis traitée sous 24 à 48 heures ouvrées.",
             ],
           },
           {
             titre: "Un théâtre soutenu par sa communauté",
             paragraphes: [
-              "L'Acte 2 est une <strong>structure indépendante</strong>, sans subvention de fonctionnement régulière. Nos ressources viennent de la billetterie, des ateliers, des locations professionnelles et — c'est essentiel — du <strong>soutien direct du public</strong>. Plusieurs façons de nous aider : prendre une carte d'abonnement, offrir une place en cadeau, parrainer une saison, organiser votre événement chez nous, parler de nous autour de vous, ou faire un don déductible (sous conditions). Tous les détails sont sur la page <a href=\"/soutenir\">Nous soutenir</a>.",
+              "Acte 2 Théâtre est une <strong>structure indépendante</strong>, sans subvention de fonctionnement régulière. Nos ressources viennent de la billetterie, des ateliers, des locations professionnelles et — c'est essentiel — du <strong>soutien direct du public</strong>. Plusieurs façons de nous aider : prendre une carte d'abonnement, offrir une place en cadeau, parrainer une saison, organiser votre événement chez nous, parler de nous autour de vous, ou faire un don déductible (sous conditions). Tous les détails sont sur la page <a href=\"/soutenir\">Nous soutenir</a>.",
               "Au quotidien, l'équipe — direction artistique, administration, technique, communication — est restreinte mais investie. Vous pouvez nous joindre directement par téléphone au <strong>04 78 83 21 71</strong> ou par mail (<a href=\"mailto:acte2theatre@yahoo.fr\">acte2theatre@yahoo.fr</a> pour l'administration, <a href=\"mailto:acte2resa@yahoo.fr\">acte2resa@yahoo.fr</a> pour les réservations groupées). La page <a href=\"/contact\">contact</a> regroupe toutes les coordonnées utiles ainsi qu'une carte numérique téléchargeable au format vCard.",
             ],
           },
@@ -684,7 +707,7 @@ export default async function HomePage() {
             titre: "Comment venir, et pourquoi revenir",
             paragraphes: [
               "L'accès est très simple en transports : <strong>métro D, station Gorge de Loup</strong> (10 minutes à pied le long du Rhône), <strong>bus C14, C6 ou 31, arrêt Place Valmy</strong> (2 minutes à pied), ou <strong>gare SNCF de Vaise</strong> à 5 minutes. En voiture, le parking Indigo Saint-Paul est à proximité immédiate et plusieurs zones bleues permettent de stationner gratuitement le soir. La salle est accessible aux personnes à mobilité réduite : prévenez-nous lors de la réservation pour que nous préparions votre accueil.",
-              "Et puis, surtout, on revient à L'Acte 2 parce qu'on s'y sent bien. C'est un lieu de quartier, où l'on croise volontiers l'équipe au bar entre deux représentations, où le public échange après le spectacle, où l'on tombe parfois sur les comédiens autour d'un verre. C'est ça, l'esprit <em>Happy Culture</em> : un théâtre qui sait rester généreux et léger, sans rien sacrifier à l'exigence. À très bientôt sous nos lumières.",
+              "Et puis, surtout, on revient à Acte 2 Théâtre parce qu'on s'y sent bien. C'est un lieu de quartier, où l'on croise volontiers l'équipe au bar entre deux représentations, où le public échange après le spectacle, où l'on tombe parfois sur les comédiens autour d'un verre. C'est ça, l'esprit <em>Happy Culture</em> : un théâtre qui sait rester généreux et léger, sans rien sacrifier à l'exigence. À très bientôt sous nos lumières.",
             ],
           },
         ]}

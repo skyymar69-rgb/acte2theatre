@@ -80,7 +80,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
         <div className="lg:col-span-4">
           <Link
             href="/"
-            aria-label="L'Acte 2 — accueil"
+            aria-label="Acte 2 Théâtre — accueil"
             className="inline-flex items-center gap-3 mb-5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950 rounded"
           >
             <span className="relative w-12 h-12 rounded-full bg-nuit-900 ring-1 ring-or-500/30 overflow-hidden flex-shrink-0 group-hover:ring-or-500/60 transition-colors">
@@ -95,7 +95,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
             </span>
             <span>
               <span className="block font-display text-xl text-craie-100 leading-tight">
-                L&rsquo;Acte <span className="text-or-500">2</span>
+                Acte <span className="text-or-500">2</span> Théâtre
               </span>
               <span className="block text-[0.62rem] uppercase tracking-[0.32em] text-or-400 mt-0.5">
                 Happy Culture
@@ -142,7 +142,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
                 href={parametres.reseauxSociaux.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Page Facebook L'Acte 2 (ouvre dans un nouvel onglet)"
+                aria-label="Page Facebook Acte 2 Théâtre (ouvre dans un nouvel onglet)"
                 className="p-2.5 rounded-full bg-nuit-800 hover:bg-or-500 hover:text-nuit-950 transition-colors hover:scale-110 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-500 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-950"
               >
                 <Facebook className="w-4 h-4" aria-hidden="true" />
@@ -291,7 +291,7 @@ export function SiteFooter({ parametres }: { parametres: Parametres | null }) {
       <div className="relative border-t border-nuit-800/80">
         <div className="container py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-craie-100/60">
           <p>
-            © {year} L'Acte 2. SARL au capital de 8 000 € — RCS Lyon
+            © {year} Acte 2 Théâtre. SARL au capital de 8 000 € — RCS Lyon
             494&nbsp;196&nbsp;819. Tous droits réservés.
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-1">

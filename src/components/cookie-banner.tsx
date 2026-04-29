@@ -85,8 +85,8 @@ export function CookieBanner() {
 
   return (
     <div
-      role="dialog"
-      aria-modal="false"
+      role="region"
+      aria-label="Préférences cookies"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"
       className="fixed inset-x-2 sm:inset-x-auto sm:right-4 sm:left-4 md:left-auto bottom-3 z-50 max-w-2xl mx-auto rounded-xl bg-surface text-ink shadow-scene border border-or-500/30 overflow-hidden animate-fade-in-up"

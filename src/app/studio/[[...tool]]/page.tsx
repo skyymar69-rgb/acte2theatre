@@ -13,7 +13,7 @@ import { Studio } from "./Studio";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Sanity Studio — L'Acte 2",
+  title: "Sanity Studio — Acte 2 Théâtre",
   robots: { index: false },
 };
 

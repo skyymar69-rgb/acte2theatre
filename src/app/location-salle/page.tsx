@@ -16,15 +16,15 @@ export default async function LocationSallePage() {
       {await renderPageStatique({ slug: "location-salle" })}
 
       <SeoBody
-        kicker="Louer L'Acte 2"
+        kicker="Louer Acte 2 Théâtre"
         titre="Une salle de spectacle 100 places à louer à Lyon, à deux pas de Vaise"
-        accroche="Cabaret intimiste, espace bar intégré, scène équipée, régisseur sur demande : L'Acte 2 met à disposition un cadre clés-en-main pour vos événements artistiques, professionnels ou associatifs, à Lyon 9. Voici ce qu'il faut savoir avant de réserver."
+        accroche="Cabaret intimiste, espace bar intégré, scène équipée, régisseur sur demande : Acte 2 Théâtre met à disposition un cadre clés-en-main pour vos événements artistiques, professionnels ou associatifs, à Lyon 9. Voici ce qu'il faut savoir avant de réserver."
         fond="surface-2"
         sections={[
           {
             titre: "Une salle pensée pour le spectacle vivant et la convivialité",
             paragraphes: [
-              "L'Acte 2 est une <strong>salle de spectacle privée</strong> située au 32 quai Arloing, dans le 9ᵉ arrondissement de Lyon (Vaise). Avec sa <strong>jauge de 100 places en configuration cabaret</strong> — tables rondes de 4 à 8 personnes — elle s'inscrit dans la tradition des théâtres de proximité : assez grande pour accueillir un vrai public, assez intime pour qu'aucun spectateur ne soit jamais loin de la scène. Cette proximité physique est la signature du lieu et change radicalement la qualité d'écoute, que l'on accueille un seul-en-scène, un magicien, un concert acoustique ou une conférence.",
+              "Acte 2 Théâtre est une <strong>salle de spectacle privée</strong> située au 32 quai Arloing, dans le 9ᵉ arrondissement de Lyon (Vaise). Avec sa <strong>jauge de 100 places en configuration cabaret</strong> — tables rondes de 4 à 8 personnes — elle s'inscrit dans la tradition des théâtres de proximité : assez grande pour accueillir un vrai public, assez intime pour qu'aucun spectateur ne soit jamais loin de la scène. Cette proximité physique est la signature du lieu et change radicalement la qualité d'écoute, que l'on accueille un seul-en-scène, un magicien, un concert acoustique ou une conférence.",
               "Le <strong>plateau scénique</strong> est équipé en parc lumière et son fonctionnel pour spectacle vivant. Il est suffisamment large pour accueillir une scénographie modeste, un duo musical ou une comédie chorale à 4-5 comédiens. Les régies son et lumière sont accessibles depuis l'arrière de la salle ; le câblage est en place pour intégrer rapidement un système son d'appoint (micros HF, ambiance, diffusion) ou un dispositif vidéo (vidéoprojecteur, captation, écran de retour).",
             ],
           },
@@ -60,7 +60,7 @@ export default async function LocationSallePage() {
           {
             titre: "Soutenir un acteur culturel lyonnais",
             paragraphes: [
-              "Privatiser L'Acte 2, c'est aussi <strong>soutenir un théâtre indépendant</strong>. Les ressources générées par les locations professionnelles permettent à la salle de continuer à programmer une saison riche tout au long de l'année — spectacles jeune public à petit prix, créations de jeunes compagnies, ateliers pour adultes et enfants — et de maintenir une politique tarifaire accessible. Votre événement a donc une <strong>portée RSE</strong> bien réelle : il participe au financement d'un acteur culturel de proximité du 9ᵉ arrondissement.",
+              "Privatiser Acte 2 Théâtre, c'est aussi <strong>soutenir un théâtre indépendant</strong>. Les ressources générées par les locations professionnelles permettent à la salle de continuer à programmer une saison riche tout au long de l'année — spectacles jeune public à petit prix, créations de jeunes compagnies, ateliers pour adultes et enfants — et de maintenir une politique tarifaire accessible. Votre événement a donc une <strong>portée RSE</strong> bien réelle : il participe au financement d'un acteur culturel de proximité du 9ᵉ arrondissement.",
             ],
           },
         ]}

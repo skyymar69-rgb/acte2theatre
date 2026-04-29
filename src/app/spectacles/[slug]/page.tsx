@@ -48,7 +48,7 @@ export async function generateMetadata({
   });
   if (!spectacle) return {};
 
-  // Pattern SEO local : "Titre — Théâtre à Lyon · Mois Année · L'Acte 2"
+  // Pattern SEO local : "Titre — Théâtre à Lyon · Mois Année · Acte 2 Théâtre"
   // Capte les requêtes "[titre] Lyon" et "spectacle [mois année] Lyon".
   const futureRep = (spectacle.representations ?? []).find(
     (r) => new Date(r.dateHeure) >= new Date()
@@ -70,10 +70,10 @@ export async function generateMetadata({
     (spectacle.resume
       ? `${spectacle.resume.slice(0, 130)} · Réservez vos places dès ${
           spectacle.tarifEnfant ?? spectacle.tarifAdulte ?? 9
-        }€ chez L'Acte 2, Lyon 9.`
+        }€ chez Acte 2 Théâtre, Lyon 9.`
       : `${spectacle.titre}${
           spectacle.compagnie ? ` — ${spectacle.compagnie}` : ""
-        } à L'Acte 2, Lyon. Réservation en ligne.`);
+        } à Acte 2 Théâtre, Lyon. Réservation en ligne.`);
 
   return {
     title: titleSeo,

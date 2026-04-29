@@ -1,4 +1,4 @@
-# Guide d'administration — L'Acte 2
+# Guide d'administration — Acte 2 Théâtre
 
 Ce guide est destiné à la personne qui gérera le contenu du site
 acte2theatre.vercel.app au quotidien (programmation, ateliers,
@@ -21,15 +21,45 @@ Aucun lien n'est affiché publiquement sur le site — tapez l'adresse
 directement dans la barre du navigateur, ou enregistrez-la dans vos
 favoris.
 
-### Connexion
+### Connexion en 2 étapes
 
-À la première visite, le Studio demande de se connecter avec :
+L'accès au Studio est protégé par **deux barrières successives** —
+c'est volontaire : la première bloque les robots et les visiteurs
+curieux, la seconde garantit que seuls les comptes Sanity autorisés
+peuvent publier.
+
+#### Étape 1 — Identifiant partagé (popup du navigateur)
+
+À l'ouverture de `/studio`, le navigateur affiche une **petite fenêtre
+"Authentification requise"** demandant un nom d'utilisateur et un mot
+de passe. Saisissez :
+
+| Champ | Valeur |
+|---|---|
+| Nom d'utilisateur | `Acte2Studio` |
+| Mot de passe | _**communiqué séparément au gérant**_ (canal sécurisé hors-Git) |
+
+> 💡 Le navigateur peut proposer d'**enregistrer** ces identifiants —
+> acceptez sur votre ordinateur personnel, refusez sur un poste partagé.
+
+Cochez « Se souvenir » pour ne pas avoir à les ressaisir à chaque visite.
+Ces identifiants sont **partagés entre tous les administrateurs**
+(Hervé, équipe, Kayzen Web). Le mot de passe ne figure jamais dans le
+dépôt Git pour des raisons de sécurité — il est stocké uniquement dans
+les variables d'environnement Vercel et transmis par canal sécurisé.
+Pour faire tourner le mot de passe : voir la **Notice technique**
+(variables d'environnement Vercel, § 3).
+
+#### Étape 2 — Compte Sanity personnel (écran d'accueil du Studio)
+
+Une fois la première barrière franchie, le Studio Sanity demande de
+se connecter avec :
 
 - **Google** (recommandé — un compte Gmail suffit)
 - **GitHub**
 - **Email + mot de passe** (créé via Sanity)
 
-Utilisez le compte qui a été configuré lors de la création du projet
+Utilisez le compte qui a été ajouté en tant que membre du projet
 Sanity. Si vous n'y avez pas accès, contactez l'agence Kayzen Web
 (<contact@kayzen-lyon.fr>) pour vous faire ajouter aux membres
 autorisés.
@@ -38,10 +68,13 @@ autorisés.
 
 - N'envoyez jamais le mot de passe ou un lien de connexion par email.
 - Si vous changez d'ordinateur, déconnectez-vous via le menu en haut à
-  droite du Studio.
+  droite du Studio **et** clôturez la fenêtre du navigateur (la Basic
+  Auth se conserve tant que la fenêtre est ouverte).
 - Sanity protège automatiquement le Studio (chiffrement, double
   facteur disponible). Activez la double authentification depuis votre
   profil Google si ce n'est pas déjà fait.
+- En cas de fuite supposée du mot de passe partagé, demandez à Kayzen
+  Web de le faire tourner (procédure < 5 minutes côté Vercel).
 
 ---
 

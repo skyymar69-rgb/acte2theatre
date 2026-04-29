@@ -101,7 +101,7 @@ export default function EntreprisePage() {
             id="ent-hero-title"
             className="font-display !text-4xl md:!text-6xl lg:!text-7xl text-balance mb-5 leading-[1.05]"
           >
-            Privatisez L&rsquo;Acte&nbsp;<span className="text-or-500">2</span> pour vos
+            Privatisez Acte&nbsp;<span className="text-or-500">2</span>&nbsp;Théâtre pour vos
             événements&nbsp;<span className="text-or-500">d&apos;entreprise</span>
           </h1>
           <p className="text-lg md:text-xl text-craie-100/85 max-w-2xl mb-8 text-pretty leading-relaxed">
@@ -341,22 +341,22 @@ export default function EntreprisePage() {
           </div>
 
           <p className="mt-5 text-xs text-ink-muted">
-            L'Acte 2 · 32 quai Arloing · 69009 Lyon (Vaise)
+            Acte 2 Théâtre · 32 quai Arloing · 69009 Lyon (Vaise)
           </p>
         </div>
       </section>
 
       <SeoBody
-        kicker="L'Acte 2 — espace entreprise"
+        kicker="Acte 2 Théâtre — espace entreprise"
         titre="Une salle de spectacle à louer à Lyon 9 pour vos événements professionnels"
-        accroche="À deux pas de la gare de Vaise et du Vieux-Lyon, L'Acte 2 met sa salle à la disposition des entreprises, comités d'entreprise (CSE), associations, compagnies et établissements scolaires. Configuration cabaret de 100 places, espace bar intégré, scène équipée et régisseur sur demande : un cadre clés-en-main pour transformer votre événement en moment marquant."
+        accroche="À deux pas de la gare de Vaise et du Vieux-Lyon, Acte 2 Théâtre met sa salle à la disposition des entreprises, comités d'entreprise (CSE), associations, compagnies et établissements scolaires. Configuration cabaret de 100 places, espace bar intégré, scène équipée et régisseur sur demande : un cadre clés-en-main pour transformer votre événement en moment marquant."
         fond="surface-2"
         sections={[
           {
-            titre: "Pourquoi choisir L'Acte 2 pour votre événement à Lyon",
+            titre: "Pourquoi choisir Acte 2 Théâtre pour votre événement à Lyon",
             paragraphes: [
               "Située au <strong>32 quai Arloing dans le 9ᵉ arrondissement de Lyon</strong>, à 4 minutes à pied de la gare SNCF de Vaise et de son pôle multimodal (métro D, tram T1, bus, parkings), notre salle est l'un des rares lieux de spectacle indépendants de Lyon dimensionnés pour les événements d'entreprise de taille humaine. La <strong>jauge de 100 places en configuration cabaret</strong> — tables rondes de 4 à 8 personnes — favorise les échanges, l'attention et l'ambiance feutrée. Plus généreuse qu'une salle de réunion classique, plus intime qu'une grande salle de spectacle, elle est calibrée pour les soirées qui doivent à la fois informer, divertir et faire date.",
-              "L'identité « <em>Happy Culture</em> » de L'Acte 2 repose sur un parti pris simple : la culture doit rester accessible, festive et conviviale. Dans le cadre d'une privatisation, cela se traduit par un <strong>accueil personnalisé</strong>, un espace bar à l'entrée pour démarrer la soirée verre en main, et la possibilité d'enchaîner ou d'intégrer un spectacle programmé dans notre saison — un seul-en-scène, un concert, une pièce courte, un magicien.",
+              "L'identité « <em>Happy Culture</em> » de Acte 2 Théâtre repose sur un parti pris simple : la culture doit rester accessible, festive et conviviale. Dans le cadre d'une privatisation, cela se traduit par un <strong>accueil personnalisé</strong>, un espace bar à l'entrée pour démarrer la soirée verre en main, et la possibilité d'enchaîner ou d'intégrer un spectacle programmé dans notre saison — un seul-en-scène, un concert, une pièce courte, un magicien.",
             ],
           },
           {
@@ -383,7 +383,7 @@ export default function EntreprisePage() {
           {
             titre: "Un partenaire lyonnais qui vous ressemble",
             paragraphes: [
-              "Privatiser L'Acte 2, c'est aussi soutenir un <strong>théâtre indépendant</strong> et un <strong>tissu culturel local</strong>. Les ressources générées par les locations professionnelles permettent à la salle de continuer à programmer une saison riche tout au long de l'année — spectacles jeune public à petit prix, créations de jeunes compagnies, ateliers pour adultes — et de maintenir une politique tarifaire accessible (places à partir de 12 €). Votre événement a donc une <strong>portée RSE</strong> bien réelle : il participe au financement d'un acteur culturel de proximité du 9ᵉ arrondissement.",
+              "Privatiser Acte 2 Théâtre, c'est aussi soutenir un <strong>théâtre indépendant</strong> et un <strong>tissu culturel local</strong>. Les ressources générées par les locations professionnelles permettent à la salle de continuer à programmer une saison riche tout au long de l'année — spectacles jeune public à petit prix, créations de jeunes compagnies, ateliers pour adultes — et de maintenir une politique tarifaire accessible (places à partir de 12 €). Votre événement a donc une <strong>portée RSE</strong> bien réelle : il participe au financement d'un acteur culturel de proximité du 9ᵉ arrondissement.",
               "Si votre entreprise s'inscrit dans une logique de <strong>mécénat culturel</strong> ou de <strong>partenariats long terme</strong> (parrainage de saison, abonnement-cadeau pour les collaborateurs, places offertes aux clients), parlons-en : nous adaptons les contreparties (logo dans la communication, rendez-vous dédiés, soirées privatives, cocktails post-spectacle). Notre échelle nous permet de construire des collaborations sur mesure, à la fois lisibles pour vos équipes et utiles pour la salle.",
             ],
           },

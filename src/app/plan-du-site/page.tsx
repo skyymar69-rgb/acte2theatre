@@ -17,7 +17,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Plan du site",
   description:
-    "Plan complet du site L'Acte 2 Lyon : programmation, ateliers, location de salle, contact, mentions légales.",
+    "Plan complet du site Acte 2 Théâtre Lyon : programmation, ateliers, location de salle, contact, mentions légales.",
   alternates: { canonical: "/plan-du-site" },
 };
 
@@ -57,7 +57,7 @@ export default async function PlanDuSitePage() {
       <header className="mb-12 max-w-2xl">
         <h1 className="mb-3">Plan du site</h1>
         <p className="text-ink-muted text-pretty">
-          Toutes les pages du site L'Acte 2, classées par section.
+          Toutes les pages du site Acte 2 Théâtre, classées par section.
           Utilisez ce plan pour naviguer rapidement ou pour accéder à une page
           précise sans passer par le menu.
         </p>

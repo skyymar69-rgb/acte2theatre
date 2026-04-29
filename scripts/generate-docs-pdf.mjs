@@ -24,14 +24,14 @@ const FILES = [
     md: "GUIDE-ADMINISTRATEUR.md",
     pdf: "Guide-administrateur.pdf",
     title: "Guide administrateur",
-    subtitle: "L'Acte 2 — back-office Sanity",
+    subtitle: "Acte 2 Théâtre — back-office Sanity",
     accent: "#C9151E", // rouge
   },
   {
     md: "NOTICE-TECHNIQUE.md",
     pdf: "Notice-technique.pdf",
     title: "Notice technique",
-    subtitle: "L'Acte 2 — stack, SEO, conformité",
+    subtitle: "Acte 2 Théâtre — stack, SEO, conformité",
     accent: "#F5C518", // or rideau
   },
 ];
